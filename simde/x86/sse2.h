@@ -4003,6 +4003,63 @@ simde_x_mm_not_si128 (simde__m128i a) {
 #endif
 }
 
+SIMDE__FUNCTION_ATTRIBUTES
+simde__m128i
+simde_x_mm_div_epi64 (simde__m128i a, simde__m128i b) {
+  simde__m128i r;
+  SIMDE__VECTORIZE
+  for (size_t i = 0 ; i < (sizeof(r.i64) / sizeof(r.i64[0])) ; i++) {
+    r.i64[i] = ~(a.i64[i]);
+  }
+  return r;
+}
+
+#if defined(__cplusplus)
+
+SIMDE__FUNCTION_ATTRIBUTES
+simde__m128i
+operator+(simde__m128i a, simde__m128i b) {
+  return simde_mm_add_epi64(a, b);
+}
+
+SIMDE__FUNCTION_ATTRIBUTES
+simde__m128i
+operator-(simde__m128i a, simde__m128i b) {
+  return simde_mm_sub_epi64(a, b);
+}
+
+SIMDE__FUNCTION_ATTRIBUTES
+simde__m128i
+operator*(simde__m128i a, simde__m128i b) {
+  return simde_x_mm_mul_epi64(a, b);
+}
+
+SIMDE__FUNCTION_ATTRIBUTES
+simde__m128i
+operator/(simde__m128i a, simde__m128i b) {
+  return simde_x_mm_div_epi64(a, b);
+}
+
+SIMDE__FUNCTION_ATTRIBUTES
+simde__m128i
+operator%(simde__m128i a, simde__m128i b) {
+  return simde_x_mm_mod_epi64(a, b);
+}
+
+SIMDE__FUNCTION_ATTRIBUTES
+simde__m128i
+operator&(simde__m128i a, simde__m128i b) {
+  return simde_mm_and_si128(a, b);
+}
+
+SIMDE__FUNCTION_ATTRIBUTES
+simde__m128i
+operator~(simde__m128i v) {
+  return simde_x_mm_not_si128(v);
+}
+
+#endif
+
 SIMDE__END_DECLS
 
 #endif /* !defined(SIMDE__SSE2_H) */
