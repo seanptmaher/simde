@@ -211,14 +211,14 @@ jobs:
   - name: emscripten
     compiler: emcc
     env:
-    - ARCH_FLAGS=""
+    - ARCH_FLAGS="-msimd128"
     - C_COMPILER=emcc
     - CXX_COMPILER=emcc
     - CONFIGURE_WRAPPER=emcmake
     - BUILD_WRAPPER=emmake
     - EXECUTABLE_EXTENSION=.js
     - TEST_WRAPPER=node
-    - OPTIMIZATION_FLAGS="-O3"
+    - OPTIMIZATION_FLAGS="-O3 -s SIMD=1"
     addons:
       apt:
         packages:
