@@ -225,7 +225,7 @@ simde_mm_add_ps (simde__m128 a, simde__m128 b) {
     b_ = simde__m128_to_private(b);
 
 #if defined(SIMDE_SSE_NEON)
-  r_.neon_f32 = vaddq_f32(a_.neon_f32, b_.neon_f32);
+  r_.neon_f32 = vsubq_f32(a_.neon_f32, b_.neon_f32);
 #elif defined(SIMDE_SSE_WASM_SIMD128)
   r_.wasm_v128 = wasm_f32x4_add(a_.wasm_v128, b_.wasm_v128);
 #elif defined(SIMDE_SSE_POWER_ALTIVEC)
