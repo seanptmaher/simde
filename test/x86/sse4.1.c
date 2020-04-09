@@ -22,8 +22,8 @@
  */
 
 #define SIMDE_TESTS_CURRENT_ISAX sse4_1
-#include <simde/x86/sse4.1.h>
-#include <test/x86/test-sse2.h>
+#include "../../simde/x86/sse4.1.h"
+#include "test-sse2.h"
 
 #if defined(SIMDE_SSE4_1_NATIVE) || defined(SIMDE_NO_NATIVE) || defined(SIMDE_ALWAYS_BUILD_NATIVE_TESTS)
 
@@ -3342,6 +3342,7 @@ test_simde_mm_testz_si128(const MunitParameter params[], void* data) {
 HEDLEY_DIAGNOSTIC_PUSH
 HEDLEY_DIAGNOSTIC_DISABLE_CAST_QUAL
 
+#if !defined(SIMDE_TESTS_SINGLE_TEST)
 static MunitTest test_suite_tests[] = {
 #if defined(SIMDE_SSE4_1_NATIVE) || defined(SIMDE_NO_NATIVE) || defined(SIMDE_ALWAYS_BUILD_NATIVE_TESTS)
   SIMDE_TESTS_DEFINE_TEST(mm_blend_epi16),
@@ -3428,6 +3429,27 @@ static MunitTest test_suite_tests[] = {
 
   { NULL, NULL, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL }
 };
+#endif /* !defined(SIMDE_TESTS_SINGLE_TEST) */
+
+#if defined(SIMDE_TESTS_SINGLE_ISAX) || defined(SIMDE_TESTS_SINGLE_TEST)
+
+MUNIT_NO_RETURN
+MUNIT_PRINTF(3, 4)
+void munit_errorf_ex(const char* filename, int line, const char* format, ...) {
+  _Exit(42);
+}
+
+int main(void) {
+  #if defined(SIMDE_TESTS_SINGLE_TEST)
+    HEDLEY_CONCAT(test_simde_, SIMDE_TESTS_SINGLE_TEST)(NULL, NULL);
+  #else
+    for (size_t i = 0 ; test_suite_tests[i].name != NULL ; i++ ) {
+      test_suite_tests[i].test(NULL, NULL);
+    }
+  #endif
+}
+
+#else
 
 HEDLEY_C_DECL MunitSuite* SIMDE_TESTS_GENERATE_SYMBOL(suite)(void) {
   static MunitSuite suite = { (char*) "/" HEDLEY_STRINGIFY(SIMDE_TESTS_CURRENT_ISAX), test_suite_tests, NULL, 1, MUNIT_SUITE_OPTION_NONE };
@@ -3435,12 +3457,6 @@ HEDLEY_C_DECL MunitSuite* SIMDE_TESTS_GENERATE_SYMBOL(suite)(void) {
   return &suite;
 }
 
-#if defined(SIMDE_TESTS_SINGLE_ISAX)
-int main(int argc, char* argv[HEDLEY_ARRAY_PARAM(argc + 1)]) {
-  static MunitSuite suite = { "", test_suite_tests, NULL, 1, MUNIT_SUITE_OPTION_NONE };
-
-  return munit_suite_main(&suite, NULL, argc, argv);
-}
 #endif /* defined(SIMDE_TESTS_SINGLE_ISAX) */
 
 HEDLEY_DIAGNOSTIC_POP
