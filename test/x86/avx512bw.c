@@ -8415,8 +8415,8 @@ test_simde_mm512_cmpeq_epi8_mask(const MunitParameter params[], void* data) {
 
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde__mmask64 r = simde_mm512_cmpeq_epi8_mask(test_vec[i].a, test_vec[i].b);
-    simde_assert_uint64(r, ==, test_vec[i].r);
-   }
+    munit_assert_uint64(r, ==, test_vec[i].r);
+  }
 
   return MUNIT_OK;
 }
@@ -8699,8 +8699,8 @@ test_simde_mm512_cmpge_epi8_mask(const MunitParameter params[], void* data) {
 
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde__mmask64 r = simde_mm512_cmpge_epi8_mask(test_vec[i].a, test_vec[i].b);
-    simde_assert_uint64(r, ==, test_vec[i].r);
-   }
+    munit_assert_uint64(r, ==, test_vec[i].r);
+  }
 
   return MUNIT_OK;
 }
@@ -8983,7 +8983,7 @@ test_simde_mm512_cmpge_epu8_mask(const MunitParameter params[], void* data) {
 
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde__mmask64 r = simde_mm512_cmpge_epu8_mask(test_vec[i].a, test_vec[i].b);
-    simde_assert_uint64(r, ==, test_vec[i].r);
+    munit_assert_uint64(r, ==, test_vec[i].r);
    }
 
   return MUNIT_OK;
@@ -9267,7 +9267,7 @@ test_simde_mm512_cmpgt_epi8_mask(const MunitParameter params[], void* data) {
 
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde__mmask64 r = simde_mm512_cmpgt_epi8_mask(test_vec[i].a, test_vec[i].b);
-    simde_assert_uint64(r, ==, test_vec[i].r);
+    munit_assert_uint64(r, ==, test_vec[i].r);
    }
 
   return MUNIT_OK;
@@ -9551,7 +9551,7 @@ test_simde_mm512_cmpgt_epu8_mask(const MunitParameter params[], void* data) {
 
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde__mmask64 r = simde_mm512_cmpgt_epu8_mask(test_vec[i].a, test_vec[i].b);
-    simde_assert_uint64(r, ==, test_vec[i].r);
+    munit_assert_uint64(r, ==, test_vec[i].r);
    }
 
   return MUNIT_OK;
