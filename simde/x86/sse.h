@@ -3185,6 +3185,8 @@ simde_mm_sub_ss (simde__m128 a, simde__m128 b) {
   return _mm_sub_ss(a, b);
 #elif defined(SIMDE_ASSUME_VECTORIZATION)
   return simde_mm_move_ss(a, simde_mm_sub_ps(a, b));
+#elif defined(SIMDE_WASM_SIMD128_NATIVE)
+  return wasm_v8x16_shuffle(wasm_f32x4_sub(a, b), a, 0, 1, 2, 3, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31);
 #else
   simde__m128_private
     r_,
@@ -3199,6 +3201,7 @@ simde_mm_sub_ss (simde__m128 a, simde__m128 b) {
   return simde__m128_from_private(r_);
 #endif
 }
+
 #if defined(SIMDE_X86_SSE_ENABLE_NATIVE_ALIASES)
 #  define _mm_sub_ss(a, b) simde_mm_sub_ss((a), (b))
 #endif
