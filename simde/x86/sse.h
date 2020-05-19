@@ -904,7 +904,7 @@ simde_mm_cmpord_ps (simde__m128 a, simde__m128 b) {
 #if defined(SIMDE_X86_SSE_NATIVE)
   return _mm_cmpord_ps(a, b);
 #elif defined(SIMDE_WASM_SIMD128_NATIVE)
-  return wasm_v128_and(wasm_f32x4_eq(a, a), wasm_f32x4_eq(a, a)); 
+  return wasm_v128_and(wasm_f32x4_eq(a, a), wasm_f32x4_eq(b, b)); 
 #else
   simde__m128_private
     r_,
@@ -1677,10 +1677,10 @@ simde__m128
 simde_mm_cmpord_ss (simde__m128 a, simde__m128 b) {
 #if defined(SIMDE_X86_SSE_NATIVE)
   return _mm_cmpord_ss(a, b);
-#elif defined(SIMDE_ASSUME_VECTORIZATION)
-  return simde_mm_move_ss(a, simde_mm_cmpord_ps(a, b));
 #elif defined(SIMDE_WASM_SIMD128_NATIVE)
   return wasm_v8x16_shuffle(wasm_v128_and(wasm_f32x4_eq(a, a), wasm_f32x4_eq(b, b)), a, 0, 1, 2, 3, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31);
+#elif defined(SIMDE_ASSUME_VECTORIZATION)
+  return simde_mm_move_ss(a, simde_mm_cmpord_ps(a, b));
 #else
   simde__m128_private
     r_,
