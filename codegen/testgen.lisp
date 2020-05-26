@@ -57,3 +57,4 @@ ${test-name}(const MunitParameter params[], void* data) {
 
   return MUNIT_OK;
 }|))
+
