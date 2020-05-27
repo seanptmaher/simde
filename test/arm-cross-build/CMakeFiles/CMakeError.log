@@ -1,0 +1,114 @@
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /bin/arm-linux-gnueabihf-gcc 
+Build flags: -march=armv8-a;;-Wall;-Wextra;-Werror
+Id flags:  
+
+The output was:
+1
+/usr/lib/gcc/arm-linux-gnueabihf/9.3.0/../../../../arm-linux-gnueabihf/bin/ld: cannot find /lib/libc.so.6 inside /usr/arm-linux-gnueabihf
+/usr/lib/gcc/arm-linux-gnueabihf/9.3.0/../../../../arm-linux-gnueabihf/bin/ld: cannot find /lib/ld-linux-armhf.so.3 inside /usr/arm-linux-gnueabihf
+collect2: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /bin/arm-linux-gnueabihf-g++ 
+Build flags: -march=armv8-a;;-Wall;-Wextra;-Werror
+Id flags:  
+
+The output was:
+1
+/usr/lib/gcc/arm-linux-gnueabihf/9.3.0/../../../../arm-linux-gnueabihf/bin/ld: cannot find /lib/libc.so.6 inside /usr/arm-linux-gnueabihf
+/usr/lib/gcc/arm-linux-gnueabihf/9.3.0/../../../../arm-linux-gnueabihf/bin/ld: cannot find /lib/ld-linux-armhf.so.3 inside /usr/arm-linux-gnueabihf
+collect2: error: ld returned 1 exit status
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: /home/sean/documents/google/code/simde/test/arm-cross-build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/bin/ninja cmTC_ffbfb && [1/2] Building C object CMakeFiles/cmTC_ffbfb.dir/testCCompiler.c.o
+[2/2] Linking C executable cmTC_ffbfb
+FAILED: cmTC_ffbfb 
+: && /bin/arm-linux-gnueabihf-gcc -march=armv8-a  -Wall -Wextra -Werror  -rdynamic CMakeFiles/cmTC_ffbfb.dir/testCCompiler.c.o  -o cmTC_ffbfb   && :
+/usr/lib/gcc/arm-linux-gnueabihf/9.3.0/../../../../arm-linux-gnueabihf/bin/ld: cannot find /lib/libc.so.6 inside /usr/arm-linux-gnueabihf
+/usr/lib/gcc/arm-linux-gnueabihf/9.3.0/../../../../arm-linux-gnueabihf/bin/ld: cannot find /lib/ld-linux-armhf.so.3 inside /usr/arm-linux-gnueabihf
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /bin/arm-linux-gnueabihf-gcc 
+Build flags: -march=armv8-a;;-Wall;-Wextra;-Werror
+Id flags:  
+
+The output was:
+1
+/usr/lib/gcc/arm-linux-gnueabihf/9.3.0/../../../../arm-linux-gnueabihf/bin/ld: cannot find /lib/libc.so.6 inside /usr/arm-linux-gnueabihf
+/usr/lib/gcc/arm-linux-gnueabihf/9.3.0/../../../../arm-linux-gnueabihf/bin/ld: cannot find /lib/ld-linux-armhf.so.3 inside /usr/arm-linux-gnueabihf
+collect2: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /bin/arm-linux-gnueabihf-g++ 
+Build flags: -march=armv8-a;;-Wall;-Wextra;-Werror
+Id flags:  
+
+The output was:
+1
+/usr/lib/gcc/arm-linux-gnueabihf/9.3.0/../../../../arm-linux-gnueabihf/bin/ld: cannot find /lib/libc.so.6 inside /usr/arm-linux-gnueabihf
+/usr/lib/gcc/arm-linux-gnueabihf/9.3.0/../../../../arm-linux-gnueabihf/bin/ld: cannot find /lib/ld-linux-armhf.so.3 inside /usr/arm-linux-gnueabihf
+collect2: error: ld returned 1 exit status
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: /home/sean/documents/google/code/simde/test/arm-cross-build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/bin/ninja cmTC_0cfff && [1/2] Building C object CMakeFiles/cmTC_0cfff.dir/testCCompiler.c.o
+[2/2] Linking C executable cmTC_0cfff
+FAILED: cmTC_0cfff 
+: && /bin/arm-linux-gnueabihf-gcc -march=armv8-a  -Wall -Wextra -Werror  -rdynamic CMakeFiles/cmTC_0cfff.dir/testCCompiler.c.o  -o cmTC_0cfff   && :
+/usr/lib/gcc/arm-linux-gnueabihf/9.3.0/../../../../arm-linux-gnueabihf/bin/ld: cannot find /lib/libc.so.6 inside /usr/arm-linux-gnueabihf
+/usr/lib/gcc/arm-linux-gnueabihf/9.3.0/../../../../arm-linux-gnueabihf/bin/ld: cannot find /lib/ld-linux-armhf.so.3 inside /usr/arm-linux-gnueabihf
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /bin/arm-linux-gnueabihf-gcc 
+Build flags: -march=armv8-a;;-Wall;-Wextra;-Werror
+Id flags:  
+
+The output was:
+1
+/usr/lib/gcc/arm-linux-gnueabihf/9.3.0/../../../../arm-linux-gnueabihf/bin/ld: cannot find /lib/libc.so.6 inside /usr/arm-linux-gnueabihf
+/usr/lib/gcc/arm-linux-gnueabihf/9.3.0/../../../../arm-linux-gnueabihf/bin/ld: cannot find /lib/ld-linux-armhf.so.3 inside /usr/arm-linux-gnueabihf
+collect2: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /bin/arm-linux-gnueabihf-g++ 
+Build flags: -march=armv8-a;;-Wall;-Wextra;-Werror
+Id flags:  
+
+The output was:
+1
+/usr/lib/gcc/arm-linux-gnueabihf/9.3.0/../../../../arm-linux-gnueabihf/bin/ld: cannot find /lib/libc.so.6 inside /usr/arm-linux-gnueabihf
+/usr/lib/gcc/arm-linux-gnueabihf/9.3.0/../../../../arm-linux-gnueabihf/bin/ld: cannot find /lib/ld-linux-armhf.so.3 inside /usr/arm-linux-gnueabihf
+collect2: error: ld returned 1 exit status
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: /home/sean/documents/google/code/simde/test/arm-cross-build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/bin/ninja cmTC_37bb6 && [1/2] Building C object CMakeFiles/cmTC_37bb6.dir/testCCompiler.c.o
+[2/2] Linking C executable cmTC_37bb6
+FAILED: cmTC_37bb6 
+: && /bin/arm-linux-gnueabihf-gcc -march=armv8-a  -Wall -Wextra -Werror  -rdynamic CMakeFiles/cmTC_37bb6.dir/testCCompiler.c.o  -o cmTC_37bb6   && :
+/usr/lib/gcc/arm-linux-gnueabihf/9.3.0/../../../../arm-linux-gnueabihf/bin/ld: cannot find /lib/libc.so.6 inside /usr/arm-linux-gnueabihf
+/usr/lib/gcc/arm-linux-gnueabihf/9.3.0/../../../../arm-linux-gnueabihf/bin/ld: cannot find /lib/ld-linux-armhf.so.3 inside /usr/arm-linux-gnueabihf
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
+

@@ -2,6 +2,7 @@
   (:use :cl :cl-user)
   (:import-from :cl-interpol)
   (:export :test-gen))
+(in-package testgen)
 
 (named-readtables:in-readtable :interpol-syntax)
 
