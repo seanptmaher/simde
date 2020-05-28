@@ -51,7 +51,7 @@ HEDLEY_STATIC_ASSERT(8 == sizeof(simde_uint8x8_t), "simde_uint8x8_t size incorre
 
 SIMDE_FUNCTION_ATTRIBUTES
 simde_uint8x8_t
-simde_vaba_u8(simde_uint8x8_t a, simde_uint8x8_t b, simde_uint8x8 c) {
+simde_vaba_u8(simde_uint8x8_t a, simde_uint8x8_t b, simde_uint8x8_t c) {
   simde_uint8x8_t r;
 #if defined(SIMDE_NEON_NATIVE)
   r.n = vaba_u8(a.n, b.n, c.n);
