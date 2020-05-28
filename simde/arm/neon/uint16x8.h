@@ -54,6 +54,26 @@ HEDLEY_STATIC_ASSERT(16 == sizeof(simde_uint16x8_t), "simde_uint16x8_t size inco
 
 SIMDE_FUNCTION_ATTRIBUTES
 simde_uint16x8_t
+simde_vabaq_u16(simde_uint16x8_t a, simde_uint16x8_t b, simde_uint16x8_t c) {
+  simde_uint16x8_t r;
+#if defined(SIMDE_NEON_NATIVE)
+  r.n = vabaq_u16(a.n, b.n, c.n);
+#elif defined(SIMDE_NEON_SSE2)
+  r.sse = _mm_add_epi16(__mm_sub_epi16(a.sse, b.sse) c.sse);
+#elif defined(SIMDE_NEON_WASM_SIMD128)
+  r.v128 = wasm_i16x8_add(wasm_i16x8_sub(a.v128, b.v128), c.v128);
+#else
+  SIMDE_VECTORIZE
+  for (size_t i = 0 ; i < (sizeof(r.u16) / sizeof(r.u16[0])) ; i++) {
+    r.u16[i] = (a.u16[i] - b.u16[i]) + c.u16[i];
+  }
+#endif
+  return r;
+}
+
+
+SIMDE_FUNCTION_ATTRIBUTES
+simde_uint16x8_t
 simde_vaddq_u16(simde_uint16x8_t a, simde_uint16x8_t b) {
   simde_uint16x8_t r;
 #if defined(SIMDE_NEON_NATIVE)
