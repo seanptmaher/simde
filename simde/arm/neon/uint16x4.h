@@ -56,7 +56,7 @@ simde_vaba_u16(simde_uint16x4_t a, simde_uint16x4_t b, simde_uint16x4_t c) {
 #if defined(SIMDE_NEON_NATIVE)
   r.n = vaba_u16(a.n, b.n, c.n);
 #elif defined(SIMDE_NEON_MMX)
-  r.mmx = _mm_add_pi16(_mm_sub_pi16(a.mmx, b.mmx), c);
+  r.mmx = _mm_add_pi16(_mm_sub_pi16(a.mmx, b.mmx), c.mmx);
 #else
   SIMDE_VECTORIZE
   for (size_t i = 0 ; i < (sizeof(r.u16) / sizeof(r.u16[0])) ; i++) {

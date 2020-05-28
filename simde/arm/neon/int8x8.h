@@ -56,7 +56,7 @@ simde_vaba_s8(simde_int8x8_t a, simde_int8x8_t b, simde_int8x16_t c) {
 #if defined(SIMDE_NEON_NATIVE)
   r.n = vaba_s8(a.n, b.n, c.n);
 #elif defined(SIMDE_NEON_MMX)
-  r.mmx = _mm_add_pi8(_m_pand(_mm_set1_pi8(0x7f), _mm_sub_pi8(a.mmx, b.mmx)), c);
+  r.mmx = _mm_add_pi8(_m_pand(_mm_set1_pi8(0x7f), _mm_sub_pi8(a.mmx, b.mmx)), c.mmx);
 #else
   SIMDE_VECTORIZE
   for (size_t i = 0 ; i < (sizeof(r.i8) / sizeof(r.i8[0])) ; i++) {
