@@ -21,6 +21,8 @@
  * SOFTWARE.
  */
 
+#define SIMDE_TESTS_CURRENT_NEON_OP aba
+#include <test/arm/neon/test-neon-internal.h>
 #include <test/arm/test-arm-internal.h>
 #include <simde/arm/neon.h>
 
@@ -559,18 +561,18 @@ test_simde_vabaq_u32(const MunitParameter params[], void* data) {
 }
 
 static MunitTest vaba_tests[] = {
-  TEST_FUNC2(vaba, s8),
-  TEST_FUNC2(vaba, s16),
-  TEST_FUNC2(vaba, s32),
-  TEST_FUNC2(vaba, u8),
-  TEST_FUNC2(vaba, u16),
-  TEST_FUNC2(vaba, u32),
-  TEST_FUNC3(vaba, q, s8),
-  TEST_FUNC3(vaba, q, s16),
-  TEST_FUNC3(vaba, q, s32),
-  TEST_FUNC3(vaba, q, u8),
-  TEST_FUNC3(vaba, q, u16),
-  TEST_FUNC3(vaba, q, u32),
+  SIMDE_TESTS_NEON_DEFINE_TEST(vaba, s8),
+  SIMDE_TESTS_NEON_DEFINE_TEST(vaba, s16),
+  SIMDE_TESTS_NEON_DEFINE_TEST(vaba, s32),
+  SIMDE_TESTS_NEON_DEFINE_TEST(vaba, u8),
+  SIMDE_TESTS_NEON_DEFINE_TEST(vaba, u16),
+  SIMDE_TESTS_NEON_DEFINE_TEST(vaba, u32),
+  SIMDE_TESTS_NEON_DEFINE_TEST_FULL(vaba, q, s8),
+  SIMDE_TESTS_NEON_DEFINE_TEST_FULL(vaba, q, s16),
+  SIMDE_TESTS_NEON_DEFINE_TEST_FULL(vaba, q, s32),
+  SIMDE_TESTS_NEON_DEFINE_TEST_FULL(vaba, q, u8),
+  SIMDE_TESTS_NEON_DEFINE_TEST_FULL(vaba, q, u16),
+  SIMDE_TESTS_NEON_DEFINE_TEST_FULL(vaba, q, u32),
 
   { NULL, NULL, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL }
 };
