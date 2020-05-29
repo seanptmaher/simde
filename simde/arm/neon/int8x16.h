@@ -61,7 +61,7 @@ simde_vabaq_s8(simde_int8x16_t a, simde_int8x16_t b, simde_int8x16_t c) {
 #if defined(SIMDE_NEON_NATIVE)
   r.n = vabaq_s8(a.n, b.n, c.n);
 #elif defined(SIMDE_NEON_WASM_SIMD128)
-  r.v128 = wasm_i8x16_add(wasm_i8x16_abs(wasm_i8x16_sub(c.v128, b.v128)), a.v128);
+  r.v128 = wasm_i8x16_add(wasm_i8x16_abs(wasm_i8x16_sub(a.v128, b.v128)), c.v128);
 #else
   SIMDE_VECTORIZE
   for (size_t i = 0 ; i < (sizeof(r.i8) / sizeof(r.i8[0])) ; i++) {
