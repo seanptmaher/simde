@@ -38,12 +38,13 @@ typedef union {
 #if defined(SIMDE_NEON_NATIVE)
   int8x16_t        n;
 #endif
-
 #if defined(SIMDE_NEON_MMX)
   __m64           mmx[2];
 #endif
 #if defined(SIMDE_NEON_SSE2)
   __m128i         sse;
+#if defined(SIMDE_NEON_WASM_SIMD128)
+  v128_t          v128;
 #endif
 } simde_int8x16_t;
 
