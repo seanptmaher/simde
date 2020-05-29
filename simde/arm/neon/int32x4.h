@@ -62,11 +62,11 @@ simde_vabaq_s32(simde_int32x4_t a, simde_int32x4_t b, simde_int32x4_t c) {
 #if defined(SIMDE_NEON_NATIVE)
   r.n = vaddq_s32(a.n, b.n, c.n);
 #elif defined(SIMDE_NEON_WASM_SIMD128)
-  r.v128 = wasm_i32x4_add(wasm_i32x4_abs(wasm_i32x4_sub(a.v128, b.v128)), c.v128);
+  r.v128 = wasm_i32x4_add(wasm_i32x4_abs(wasm_i32x4_sub(b.v128, c.v128)), a.v128);
 #else
   SIMDE_VECTORIZE
   for (size_t i = 0 ; i < (sizeof(r.i32) / sizeof(r.i32[0])) ; i++) {
-    r.i32[i] = abs(a.i32[i] - b.i32[i]) + c.i32[i];
+    r.i32[i] = abs(b.i32[i] - c.i32[i]) + a.i32[i];
   }
 #endif
   return r;

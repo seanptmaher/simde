@@ -58,7 +58,7 @@ simde_vaba_s32(simde_int32x2_t a, simde_int32x2_t b, simde_int32x2_t c) {
 #else
   SIMDE_VECTORIZE
   for (size_t i = 0 ; i < (sizeof(r.i32) / sizeof(r.i32[0])) ; i++) {
-    r.i32[i] = abs(a.i32[i] - b.i32[i]) + c.i32[i];
+    r.i32[i] = abs(b.i32[i] - c.i32[i]) + a.i32[i];
   }
 #endif
   return r;
