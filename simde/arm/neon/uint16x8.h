@@ -44,6 +44,7 @@ typedef union {
 #endif
 #if defined(SIMDE_NEON_SSE2)
   __m128i         sse;
+#endif
 #if defined(SIMDE_NEON_WASM_SIMD128)
   v128_t          v128;
 #endif
