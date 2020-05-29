@@ -56,7 +56,7 @@ simde_vaba_u32(simde_uint32x2_t a, simde_uint32x2_t b, simde_uint32x2_t c) {
 #if defined(SIMDE_NEON_NATIVE)
   r.n = vaba_u32(a.n, b.n, c.n);
 #elif defined(SIMDE_NEON_MMX)
-  r.mmx = _mm_add_pi32(_mm_sub_epi32(a.mmx, b.mmx), c.mmx);
+  r.mmx = _mm_add_pi32(_mm_sub_pi32(a.mmx, b.mmx), c.mmx);
 #else
   SIMDE_VECTORIZE
   for (size_t i = 0 ; i < (sizeof(r.u32) / sizeof(r.u32[0])) ; i++) {

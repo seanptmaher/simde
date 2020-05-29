@@ -59,7 +59,7 @@ simde_vabaq_u16(simde_uint16x8_t a, simde_uint16x8_t b, simde_uint16x8_t c) {
 #if defined(SIMDE_NEON_NATIVE)
   r.n = vabaq_u16(a.n, b.n, c.n);
 #elif defined(SIMDE_NEON_SSE2)
-  r.sse = _mm_add_epi16(__mm_sub_epi16(a.sse, b.sse), c.sse);
+  r.sse = _mm_add_epi16(_mm_sub_epi16(a.sse, b.sse), c.sse);
 #elif defined(SIMDE_NEON_WASM_SIMD128)
   r.v128 = wasm_i16x8_add(wasm_i16x8_sub(a.v128, b.v128), c.v128);
 #else

@@ -59,7 +59,7 @@ simde_vabaq_u32(simde_uint32x4_t a, simde_uint32x4_t b, simde_uint32x4_t c) {
 #if defined(SIMDE_NEON_NATIVE)
   r.n = vabaq_u32(a.n, b.n, c.n);
 #elif defined(SIMDE_NEON_SSE2)
-  r.sse = _mm_add_epi32(__mm_sub_epi32(a.sse, b.sse), c.sse);
+  r.sse = _mm_add_epi32(_mm_sub_epi32(a.sse, b.sse), c.sse);
 #elif defined(SIMDE_NEON_WASM_SIMD128)
   r.v128 = wasm_i32x4_add(wasm_i32x4_sub(a.v128, b.v128), c.v128);
 #else

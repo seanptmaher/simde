@@ -58,8 +58,6 @@ simde_vabaq_s32(simde_int32x4_t a, simde_int32x4_t b, simde_int32x4_t c) {
   simde_int32x4_t r;
 #if defined(SIMDE_NEON_NATIVE)
   r.n = vaddq_s32(a.n, b.n, c.n);
-#elif defined(SIMDE_NEON_SSE2)
-  r.sse = _mm_add_epi32(_mm_and_ps(_mm_castsi128_ps(_mm_srli_epi32(_mm_set1_epi32(-1), 1)), _mm_sub_epi32(a.sse, b.sse)), c.sse);
 #elif defined(SIMDE_NEON_WASM_SIMD128)
   r.v128 = wasm_i32x4_add(wasm_i32x4_abs(wasm_i32x4_sub(a.v128, b.v128)), c.v128);
 #else
