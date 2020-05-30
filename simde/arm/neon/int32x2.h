@@ -54,7 +54,7 @@ simde_int32x2_t
 simde_vaba_s32(simde_int32x2_t a, simde_int32x2_t b, simde_int32x2_t c) {
   simde_int32x2_t r;
 #if defined(SIMDE_NEON_NATIVE)
-  r.n = vaba_s32(a.n, b.n);
+  r.n = vaba_s32(a.n, b.n, c.n);
 #else
   SIMDE_VECTORIZE
   for (size_t i = 0 ; i < (sizeof(r.i32) / sizeof(r.i32[0])) ; i++) {
