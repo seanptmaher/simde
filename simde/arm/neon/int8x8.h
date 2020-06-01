@@ -58,7 +58,7 @@ simde_vabd_s8(simde_int8x8_t a, simde_int8x8_t b) {
 #else
   SIMDE_VECTORIZE
   for (size_t i = 0 ; i < (sizeof(r.i8) / sizeof(r.i8[0])) ; i++) {
-    r.i8[i] = abs(a.i8[i] - b.i8[i]);
+    r.i8[i] = (uint16_t) ((((int16_t) a.i8[i]) - ((int16_t) b.i8[i])) > 0) ? (((int16_t) a.i8[i]) - ((int16_t) b.i8[i])) : -(((int16_t) a.i8[i]) - ((int16_t) b.i8[i]));
   }
 #endif
   return r;
