@@ -84,28 +84,6 @@ test_simde_vabd_s8(const MunitParameter params[], void* data) {
                        INT8_C(-101), INT8_C( -59), INT8_C(  83), INT8_C(  95)) },
 
   };
-
-  /* printf("\n"); */
-  /* for (size_t i = 0 ; i < (sizeof(test_vec) / (sizeof(test_vec[0]))) ; i++) { */
-  /*   simde_int8x8_t a, b, r; */
-
-  /*   munit_rand_memory(sizeof(a), (uint8_t*) &a); */
-  /*   munit_rand_memory(sizeof(b), (uint8_t*) &b); */
-
-  /*   r = simde_vabd_s8(a, b); */
-
-  /*   printf("    { simde_x_vload_s8(INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "),\n" */
-  /*          "                       INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 ")),\n", */
-  /*          a.i8[0], a.i8[1], a.i8[2], a.i8[3], a.i8[4], a.i8[5], a.i8[6], a.i8[7]); */
-  /*   printf("      simde_x_vload_s8(INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "),\n" */
-  /*          "                       INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 ")),\n", */
-  /*          b.i8[0], b.i8[1], b.i8[2], b.i8[3], b.i8[4], b.i8[5], b.i8[6], b.i8[7]); */
-  /*   printf("      simde_x_vload_s8(INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "),\n" */
-  /*          "                       INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 ")) },\n", */
-  /*          r.i8[0], r.i8[1], r.i8[2], r.i8[3], r.i8[4], r.i8[5], r.i8[6], r.i8[7]); */
-  /* } */
-  /* return MUNIT_FAIL; */
-
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde_int8x8_t r = simde_vabd_s8(test_vec[i].a, test_vec[i].b);
     simde_neon_assert_int8x8(r, ==, test_vec[i].r);
@@ -150,24 +128,6 @@ test_simde_vabd_s16(const MunitParameter params[], void* data) {
       simde_x_vload_s16(INT16_C( 10267), INT16_C( 14896), INT16_C(-15205), INT16_C( 24147)) },
 
   };
-
-  /* printf("\n"); */
-  /* for (size_t i = 0 ; i < (sizeof(test_vec) / (sizeof(test_vec[0]))) ; i++) { */
-  /*   simde_int16x4_t a, b, r; */
-
-  /*   munit_rand_memory(sizeof(a), (uint8_t*) &a); */
-  /*   munit_rand_memory(sizeof(b), (uint8_t*) &b); */
-
-  /*   r = simde_vabd_s16(a, b); */
-
-  /*   printf("    { simde_x_vload_s16(INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 ")),\n", */
-  /*          a.i16[0], a.i16[1], a.i16[2], a.i16[3]); */
-  /*   printf("      simde_x_vload_s16(INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 ")),\n", */
-  /*          b.i16[0], b.i16[1], b.i16[2], b.i16[3]); */
-  /*   printf("      simde_x_vload_s16(INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 ")) },\n", */
-  /*          r.i16[0], r.i16[1], r.i16[2], r.i16[3]); */
-  /* } */
-  /* return MUNIT_FAIL; */
 
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde_int16x4_t r = simde_vabd_s16(test_vec[i].a, test_vec[i].b);
@@ -214,23 +174,6 @@ test_simde_vabd_s32(const MunitParameter params[], void* data) {
 
   };
 
-  /* printf("\n"); */
-  /* for (size_t i = 0 ; i < (sizeof(test_vec) / (sizeof(test_vec[0]))) ; i++) { */
-  /*   simde_int32x2_t a, b, r; */
-
-  /*   munit_rand_memory(sizeof(a), (uint8_t*) &a); */
-  /*   munit_rand_memory(sizeof(b), (uint8_t*) &b); */
-
-  /*   r = simde_vabd_s32(a, b); */
-
-  /*   printf("    { simde_x_vload_s32(INT32_C(%11" PRId32 "), INT32_C(%11" PRId32 ")),\n", */
-  /*          a.i32[0], a.i32[1]); */
-  /*   printf("      simde_x_vload_s32(INT32_C(%11" PRId32 "), INT32_C(%11" PRId32 ")),\n", */
-  /*          b.i32[0], b.i32[1]); */
-  /*   printf("      simde_x_vload_s32(INT32_C(%11" PRId32 "), INT32_C(%11" PRId32 ")) },\n", */
-  /*          r.i32[0], r.i32[1]); */
-  /* } */
-  /* return MUNIT_FAIL; */
 
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde_int32x2_t r = simde_vabd_s32(test_vec[i].a, test_vec[i].b);
@@ -301,27 +244,6 @@ test_simde_vabd_u8(const MunitParameter params[], void* data) {
 
   };
 
-  /* printf("\n"); */
-  /* for (size_t i = 0 ; i < (sizeof(test_vec) / (sizeof(test_vec[0]))) ; i++) { */
-  /*   simde_uint8x8_t a, b, r; */
-
-  /*   munit_rand_memory(sizeof(a), (uint8_t*) &a); */
-  /*   munit_rand_memory(sizeof(b), (uint8_t*) &b); */
-
-  /*   r = simde_vabd_u8(a, b); */
-
-  /*   printf("    { simde_x_vload_u8(UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "),\n" */
-  /*          "                       UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 ")),\n", */
-  /*          a.u8[0], a.u8[1], a.u8[2], a.u8[3], a.u8[4], a.u8[5], a.u8[6], a.u8[7]); */
-  /*   printf("      simde_x_vload_u8(UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "),\n" */
-  /*          "                       UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 ")),\n", */
-  /*          b.u8[0], b.u8[1], b.u8[2], b.u8[3], b.u8[4], b.u8[5], b.u8[6], b.u8[7]); */
-  /*   printf("      simde_x_vload_u8(UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "),\n" */
-  /*          "                       UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 ")) },\n", */
-  /*          r.u8[0], r.u8[1], r.u8[2], r.u8[3], r.u8[4], r.u8[5], r.u8[6], r.u8[7]); */
-  /* } */
-  /* return MUNIT_FAIL; */
-
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde_uint8x8_t r = simde_vabd_u8(test_vec[i].a, test_vec[i].b);
     simde_neon_assert_uint8x8(r, ==, test_vec[i].r);
@@ -366,24 +288,6 @@ test_simde_vabd_u16(const MunitParameter params[], void* data) {
       simde_x_vload_u16(UINT16_C( 6580), UINT16_C( 4180), UINT16_C(22144), UINT16_C(25176)) },
 
   };
-
-  /* printf("\n"); */
-  /* for (size_t i = 0 ; i < (sizeof(test_vec) / (sizeof(test_vec[0]))) ; i++) { */
-  /*   simde_uint16x4_t a, b, r; */
-
-  /*   munit_rand_memory(sizeof(a), (uint8_t*) &a); */
-  /*   munit_rand_memory(sizeof(b), (uint8_t*) &b); */
-
-  /*   r = simde_vabd_u16(a, b); */
-
-  /*   printf("    { simde_x_vload_u16(UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 ")),\n", */
-  /*          a.u16[0], a.u16[1], a.u16[2], a.u16[3]); */
-  /*   printf("      simde_x_vload_u16(UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 ")),\n", */
-  /*          b.u16[0], b.u16[1], b.u16[2], b.u16[3]); */
-  /*   printf("      simde_x_vload_u16(UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 ")) },\n", */
-  /*          r.u16[0], r.u16[1], r.u16[2], r.u16[3]); */
-  /* } */
-  /* return MUNIT_FAIL; */
 
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde_uint16x4_t r = simde_vabd_u16(test_vec[i].a, test_vec[i].b);
@@ -430,24 +334,6 @@ test_simde_vabd_u32(const MunitParameter params[], void* data) {
 
   };
 
-  /* printf("\n"); */
-  /* for (size_t i = 0 ; i < (sizeof(test_vec) / (sizeof(test_vec[0]))) ; i++) { */
-  /*   simde_uint32x2_t a, b, r; */
-
-  /*   munit_rand_memory(sizeof(a), (uint8_t*) &a); */
-  /*   munit_rand_memory(sizeof(b), (uint8_t*) &b); */
-
-  /*   r = simde_vabd_u32(a, b); */
-
-  /*   printf("    { simde_x_vload_u32(UINT32_C(%10" PRIu32 "), UINT32_C(%10" PRIu32 ")),\n", */
-  /*          a.u32[0], a.u32[1]); */
-  /*   printf("      simde_x_vload_u32(UINT32_C(%10" PRIu32 "), UINT32_C(%10" PRIu32 ")),\n", */
-  /*          b.u32[0], b.u32[1]); */
-  /*   printf("      simde_x_vload_u32(UINT32_C(%10" PRIu32 "), UINT32_C(%10" PRIu32 ")) },\n", */
-  /*          r.u32[0], r.u32[1]); */
-  /* } */
-  /* return MUNIT_FAIL; */
-
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde_uint32x2_t r = simde_vabd_u32(test_vec[i].a, test_vec[i].b);
     simde_neon_assert_uint32x2(r, ==, test_vec[i].r);
@@ -456,7 +342,6 @@ test_simde_vabd_u32(const MunitParameter params[], void* data) {
   return MUNIT_OK;
 }
 
-#if 0
 
 static MunitResult
 test_simde_vabd_f32(const MunitParameter params[], void* data) {
@@ -468,26 +353,32 @@ test_simde_vabd_f32(const MunitParameter params[], void* data) {
     simde_float32x2_t b;
     simde_float32x2_t r;
   } test_vec[8] = {
+    { simde_x_vload_f32(SIMDE_FLOAT32_C(  689.19), SIMDE_FLOAT32_C( -303.34)),
+      simde_x_vload_f32(SIMDE_FLOAT32_C(  -66.67), SIMDE_FLOAT32_C( -401.68)),
+      simde_x_vload_f32(SIMDE_FLOAT32_C(  755.86), SIMDE_FLOAT32_C(   98.34)) },
+    { simde_x_vload_f32(SIMDE_FLOAT32_C( -939.36), SIMDE_FLOAT32_C(  983.73)),
+      simde_x_vload_f32(SIMDE_FLOAT32_C(  949.74), SIMDE_FLOAT32_C( -718.64)),
+      simde_x_vload_f32(SIMDE_FLOAT32_C( 1889.10), SIMDE_FLOAT32_C( 1702.37)) },
+    { simde_x_vload_f32(SIMDE_FLOAT32_C( -431.59), SIMDE_FLOAT32_C(  -80.63)),
+      simde_x_vload_f32(SIMDE_FLOAT32_C(  822.30), SIMDE_FLOAT32_C( -755.73)),
+      simde_x_vload_f32(SIMDE_FLOAT32_C( 1253.89), SIMDE_FLOAT32_C(  675.10)) },
+    { simde_x_vload_f32(SIMDE_FLOAT32_C(   -5.28), SIMDE_FLOAT32_C(  466.08)),
+      simde_x_vload_f32(SIMDE_FLOAT32_C(  443.24), SIMDE_FLOAT32_C(  423.22)),
+      simde_x_vload_f32(SIMDE_FLOAT32_C(  448.52), SIMDE_FLOAT32_C(   42.86)) },
+    { simde_x_vload_f32(SIMDE_FLOAT32_C(  113.60), SIMDE_FLOAT32_C(  279.75)),
+      simde_x_vload_f32(SIMDE_FLOAT32_C( -492.46), SIMDE_FLOAT32_C( -866.98)),
+      simde_x_vload_f32(SIMDE_FLOAT32_C(  606.06), SIMDE_FLOAT32_C( 1146.73)) },
+    { simde_x_vload_f32(SIMDE_FLOAT32_C(  928.97), SIMDE_FLOAT32_C(   97.55)),
+      simde_x_vload_f32(SIMDE_FLOAT32_C(  966.19), SIMDE_FLOAT32_C(   43.80)),
+      simde_x_vload_f32(SIMDE_FLOAT32_C(   37.22), SIMDE_FLOAT32_C(   53.75)) },
+    { simde_x_vload_f32(SIMDE_FLOAT32_C(  351.24), SIMDE_FLOAT32_C( -255.62)),
+      simde_x_vload_f32(SIMDE_FLOAT32_C( -309.50), SIMDE_FLOAT32_C(  968.78)),
+      simde_x_vload_f32(SIMDE_FLOAT32_C(  660.74), SIMDE_FLOAT32_C( 1224.40)) },
+    { simde_x_vload_f32(SIMDE_FLOAT32_C( -699.58), SIMDE_FLOAT32_C(  814.65)),
+      simde_x_vload_f32(SIMDE_FLOAT32_C(  171.28), SIMDE_FLOAT32_C(  -54.03)),
+      simde_x_vload_f32(SIMDE_FLOAT32_C(  870.86), SIMDE_FLOAT32_C(  868.68)) },
 
   };
-
-  printf("\n");
-  for (size_t i = 0 ; i < (sizeof(test_vec) / (sizeof(test_vec[0]))) ; i++) {
-    simde_float32x2_t a, b, r;
-
-    a = simde_neon_random_float32x2();
-    b = simde_neon_random_float32x2();
-
-    r = simde_vabd_f32(a, b);
-
-    printf("    { simde_x_vload_f32(SIMDE_FLOAT32_C(%*.2f), SIMDE_FLOAT32_C(%*.2f)),\n",
-           8, a.f32[0], 8, a.f32[1]);
-    printf("      simde_x_vload_f32(SIMDE_FLOAT32_C(%*.2f), SIMDE_FLOAT32_C(%*.2f)),\n",
-           8, b.f32[0], 8, b.f32[1]);
-    printf("      simde_x_vload_f32(SIMDE_FLOAT32_C(%*.2f), SIMDE_FLOAT32_C(%*.2f)) },\n",
-           8, r.f32[0], 8, r.f32[1]);
-  }
-  return MUNIT_FAIL;
 
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde_float32x2_t r = simde_vabd_f32(test_vec[i].a, test_vec[i].b);
@@ -507,23 +398,32 @@ test_simde_vabd_f64(const MunitParameter params[], void* data) {
     simde_float64x1_t b;
     simde_float64x1_t r;
   } test_vec[8] = {
+    { simde_x_vload_f64(SIMDE_FLOAT64_C(  689.19)),
+      simde_x_vload_f64(SIMDE_FLOAT64_C( -303.34)),
+      simde_x_vload_f64(SIMDE_FLOAT64_C(  992.53)) },
+    { simde_x_vload_f64(SIMDE_FLOAT64_C(  -66.67)),
+      simde_x_vload_f64(SIMDE_FLOAT64_C( -401.68)),
+      simde_x_vload_f64(SIMDE_FLOAT64_C(  335.01)) },
+    { simde_x_vload_f64(SIMDE_FLOAT64_C( -939.36)),
+      simde_x_vload_f64(SIMDE_FLOAT64_C(  983.73)),
+      simde_x_vload_f64(SIMDE_FLOAT64_C( 1923.09)) },
+    { simde_x_vload_f64(SIMDE_FLOAT64_C(  949.74)),
+      simde_x_vload_f64(SIMDE_FLOAT64_C( -718.64)),
+      simde_x_vload_f64(SIMDE_FLOAT64_C( 1668.38)) },
+    { simde_x_vload_f64(SIMDE_FLOAT64_C( -431.59)),
+      simde_x_vload_f64(SIMDE_FLOAT64_C(  -80.63)),
+      simde_x_vload_f64(SIMDE_FLOAT64_C(  350.96)) },
+    { simde_x_vload_f64(SIMDE_FLOAT64_C(  822.30)),
+      simde_x_vload_f64(SIMDE_FLOAT64_C( -755.73)),
+      simde_x_vload_f64(SIMDE_FLOAT64_C( 1578.03)) },
+    { simde_x_vload_f64(SIMDE_FLOAT64_C(   -5.28)),
+      simde_x_vload_f64(SIMDE_FLOAT64_C(  466.08)),
+      simde_x_vload_f64(SIMDE_FLOAT64_C(  471.36)) },
+    { simde_x_vload_f64(SIMDE_FLOAT64_C(  443.24)),
+      simde_x_vload_f64(SIMDE_FLOAT64_C(  423.22)),
+      simde_x_vload_f64(SIMDE_FLOAT64_C(   20.02)) },
 
   };
-
-  printf("\n");
-  for (size_t i = 0 ; i < (sizeof(test_vec) / (sizeof(test_vec[0]))) ; i++) {
-    simde_float64x1_t a, b, r;
-
-    a = simde_neon_random_float64x1();
-    b = simde_neon_random_float64x1();
-
-    r = simde_vabd_f64(a, b);
-
-    printf("    { simde_x_vload_f64(SIMDE_FLOAT64_C(%*.2f)),\n", 8, a.f64[0]);
-    printf("      simde_x_vload_f64(SIMDE_FLOAT64_C(%*.2f)),\n", 8, b.f64[0]);
-    printf("      simde_x_vload_f64(SIMDE_FLOAT64_C(%*.2f)) },\n", 8, r.f64[0]);
-  }
-  return MUNIT_FAIL;
 
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde_float64x1_t r = simde_vabd_f64(test_vec[i].a, test_vec[i].b);
@@ -543,38 +443,104 @@ test_simde_vabdq_s8(const MunitParameter params[], void* data) {
     simde_int8x16_t b;
     simde_int8x16_t r;
   } test_vec[8] = {
+    { simde_x_vloadq_s8(INT8_C(  14), INT8_C( -98), INT8_C( -16), INT8_C(  -2),
+                        INT8_C( -17), INT8_C( -21), INT8_C( 117), INT8_C(-122),
+                        INT8_C( 101), INT8_C(   3), INT8_C( 127), INT8_C(  42),
+                        INT8_C(  66), INT8_C( -84), INT8_C( -72), INT8_C(  41)),
+      simde_x_vloadq_s8(INT8_C( 101), INT8_C(  80), INT8_C(  22), INT8_C( -57),
+                        INT8_C(  37), INT8_C( -53), INT8_C( -33), INT8_C( -66),
+                        INT8_C( -20), INT8_C(-120), INT8_C(  84), INT8_C(   2),
+                        INT8_C( -78), INT8_C( 105), INT8_C(-120), INT8_C(  14)),
+      simde_x_vloadq_s8(INT8_C(  87), INT8_C( -78), INT8_C(  38), INT8_C(  55),
+                        INT8_C(  54), INT8_C(  32), INT8_C(-106), INT8_C(  56),
+                        INT8_C( 121), INT8_C( 123), INT8_C(  43), INT8_C(  40),
+                        INT8_C(-112), INT8_C( -67), INT8_C(  48), INT8_C(  27)) },
+    { simde_x_vloadq_s8(INT8_C(   5), INT8_C(  91), INT8_C( 109), INT8_C(  50),
+                        INT8_C(  68), INT8_C(  67), INT8_C( 117), INT8_C(  75),
+                        INT8_C(   8), INT8_C(  80), INT8_C(  45), INT8_C( -17),
+                        INT8_C(  13), INT8_C( -41), INT8_C( -28), INT8_C(  42)),
+      simde_x_vloadq_s8(INT8_C(-110), INT8_C( 102), INT8_C( -76), INT8_C( -50),
+                        INT8_C( -12), INT8_C( 118), INT8_C( -24), INT8_C(  90),
+                        INT8_C(   3), INT8_C( -82), INT8_C( -30), INT8_C( -60),
+                        INT8_C( 101), INT8_C( -16), INT8_C(  93), INT8_C( -32)),
+      simde_x_vloadq_s8(INT8_C( 115), INT8_C(  11), INT8_C( -71), INT8_C( 100),
+                        INT8_C(  80), INT8_C(  51), INT8_C(-115), INT8_C(  15),
+                        INT8_C(   5), INT8_C( -94), INT8_C(  75), INT8_C(  43),
+                        INT8_C(  88), INT8_C(  25), INT8_C( 121), INT8_C(  74)) },
+    { simde_x_vloadq_s8(INT8_C(  -9), INT8_C(  57), INT8_C( -38), INT8_C( -86),
+                        INT8_C( -57), INT8_C(-101), INT8_C(  59), INT8_C(  94),
+                        INT8_C(-111), INT8_C(  51), INT8_C(-117), INT8_C( -25),
+                        INT8_C( -37), INT8_C( -92), INT8_C(  11), INT8_C( -12)),
+      simde_x_vloadq_s8(INT8_C(  13), INT8_C( -12), INT8_C(  -3), INT8_C( -64),
+                        INT8_C(-117), INT8_C( -11), INT8_C( -53), INT8_C(  66),
+                        INT8_C( -71), INT8_C( -67), INT8_C( 122), INT8_C(  58),
+                        INT8_C( 118), INT8_C(  58), INT8_C( -35), INT8_C(   2)),
+      simde_x_vloadq_s8(INT8_C(  22), INT8_C(  69), INT8_C(  35), INT8_C(  22),
+                        INT8_C(  60), INT8_C(  90), INT8_C( 112), INT8_C(  28),
+                        INT8_C(  40), INT8_C( 118), INT8_C( -17), INT8_C(  83),
+                        INT8_C(-101), INT8_C(-106), INT8_C(  46), INT8_C(  14)) },
+    { simde_x_vloadq_s8(INT8_C( -76), INT8_C(  -9), INT8_C( -99), INT8_C(-101),
+                        INT8_C(-125), INT8_C( -46), INT8_C(  85), INT8_C(  82),
+                        INT8_C(  75), INT8_C( 119), INT8_C(-107), INT8_C(  77),
+                        INT8_C( -48), INT8_C(  -8), INT8_C( -74), INT8_C(  71)),
+      simde_x_vloadq_s8(INT8_C(  33), INT8_C(  45), INT8_C( -46), INT8_C(-119),
+                        INT8_C(  54), INT8_C( -14), INT8_C(  60), INT8_C(  63),
+                        INT8_C( 114), INT8_C( 119), INT8_C(  96), INT8_C( -94),
+                        INT8_C(-114), INT8_C(  20), INT8_C( -97), INT8_C(  86)),
+      simde_x_vloadq_s8(INT8_C( 109), INT8_C(  54), INT8_C(  53), INT8_C(  18),
+                        INT8_C( -77), INT8_C(  32), INT8_C(  25), INT8_C(  19),
+                        INT8_C(  39), INT8_C(   0), INT8_C( -53), INT8_C( -85),
+                        INT8_C(  66), INT8_C(  28), INT8_C(  23), INT8_C(  15)) },
+    { simde_x_vloadq_s8(INT8_C(  72), INT8_C(  54), INT8_C( -91), INT8_C( -60),
+                        INT8_C( -13), INT8_C( -80), INT8_C( -48), INT8_C( -92),
+                        INT8_C(  72), INT8_C(  43), INT8_C( -59), INT8_C( -87),
+                        INT8_C( -61), INT8_C(-110), INT8_C( 116), INT8_C( -40)),
+      simde_x_vloadq_s8(INT8_C(  38), INT8_C(  71), INT8_C(  -8), INT8_C(  51),
+                        INT8_C(-122), INT8_C( -13), INT8_C(-113), INT8_C(  64),
+                        INT8_C(  77), INT8_C(-102), INT8_C( -90), INT8_C(   6),
+                        INT8_C( -62), INT8_C( -39), INT8_C( -23), INT8_C( -50)),
+      simde_x_vloadq_s8(INT8_C(  34), INT8_C(  17), INT8_C(  83), INT8_C( 111),
+                        INT8_C( 109), INT8_C(  67), INT8_C(  65), INT8_C(-100),
+                        INT8_C(   5), INT8_C(-111), INT8_C(  31), INT8_C(  93),
+                        INT8_C(   1), INT8_C(  71), INT8_C(-117), INT8_C(  10)) },
+    { simde_x_vloadq_s8(INT8_C(  -9), INT8_C(  19), INT8_C(-122), INT8_C(  61),
+                        INT8_C(  56), INT8_C( -88), INT8_C(  -7), INT8_C( 122),
+                        INT8_C(   0), INT8_C(-112), INT8_C( -44), INT8_C(  57),
+                        INT8_C(-117), INT8_C( -90), INT8_C(  13), INT8_C(  91)),
+      simde_x_vloadq_s8(INT8_C(  38), INT8_C(-102), INT8_C( -34), INT8_C(-120),
+                        INT8_C( -35), INT8_C( -72), INT8_C(   9), INT8_C(-111),
+                        INT8_C(  90), INT8_C(  31), INT8_C( -26), INT8_C( -22),
+                        INT8_C( -80), INT8_C( 112), INT8_C( -77), INT8_C(  -9)),
+      simde_x_vloadq_s8(INT8_C(  47), INT8_C( 121), INT8_C(  88), INT8_C( -75),
+                        INT8_C(  91), INT8_C(  16), INT8_C(  16), INT8_C( -23),
+                        INT8_C(  90), INT8_C(-113), INT8_C(  18), INT8_C(  79),
+                        INT8_C(  37), INT8_C( -54), INT8_C(  90), INT8_C( 100)) },
+    { simde_x_vloadq_s8(INT8_C(  98), INT8_C(  67), INT8_C( -45), INT8_C(-128),
+                        INT8_C(  10), INT8_C(  79), INT8_C(   5), INT8_C( -89),
+                        INT8_C(-114), INT8_C( -62), INT8_C(  24), INT8_C( -92),
+                        INT8_C(  56), INT8_C( -75), INT8_C( -66), INT8_C(  61)),
+      simde_x_vloadq_s8(INT8_C(  23), INT8_C( -98), INT8_C(  -9), INT8_C(-109),
+                        INT8_C(-126), INT8_C( -46), INT8_C(  -1), INT8_C(  39),
+                        INT8_C( -48), INT8_C( 124), INT8_C( 122), INT8_C( -45),
+                        INT8_C(-112), INT8_C( -19), INT8_C( 127), INT8_C( -88)),
+      simde_x_vloadq_s8(INT8_C(  75), INT8_C( -91), INT8_C(  36), INT8_C(  19),
+                        INT8_C(-120), INT8_C( 125), INT8_C(   6), INT8_C(-128),
+                        INT8_C(  66), INT8_C( -70), INT8_C(  98), INT8_C(  47),
+                        INT8_C( -88), INT8_C(  56), INT8_C( -63), INT8_C(-107)) },
+    { simde_x_vloadq_s8(INT8_C( -86), INT8_C( -21), INT8_C( -99), INT8_C(-106),
+                        INT8_C(-103), INT8_C(-123), INT8_C(  19), INT8_C(  63),
+                        INT8_C( 116), INT8_C(  94), INT8_C(  79), INT8_C(  64),
+                        INT8_C(  51), INT8_C( -43), INT8_C(  87), INT8_C(-123)),
+      simde_x_vloadq_s8(INT8_C( -81), INT8_C(  18), INT8_C(  55), INT8_C(-118),
+                        INT8_C(  59), INT8_C( -34), INT8_C( -80), INT8_C(  96),
+                        INT8_C( -67), INT8_C( -66), INT8_C(-114), INT8_C( -53),
+                        INT8_C( -70), INT8_C( -74), INT8_C(  79), INT8_C( -25)),
+      simde_x_vloadq_s8(INT8_C(   5), INT8_C(  39), INT8_C(-102), INT8_C(  12),
+                        INT8_C( -94), INT8_C(  89), INT8_C(  99), INT8_C(  33),
+                        INT8_C( -73), INT8_C( -96), INT8_C( -63), INT8_C( 117),
+                        INT8_C( 121), INT8_C(  31), INT8_C(   8), INT8_C(  98)) },
 
   };
-
-  printf("\n");
-  for (size_t i = 0 ; i < (sizeof(test_vec) / (sizeof(test_vec[0]))) ; i++) {
-    simde_int8x16_t a, b, r;
-
-    munit_rand_memory(sizeof(a), (uint8_t*) &a);
-    munit_rand_memory(sizeof(b), (uint8_t*) &b);
-
-    r = simde_vabdq_s8(a, b);
-
-    printf("    { simde_x_vloadq_s8(INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "),\n"
-	   "                        INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "),\n"
-           "                        INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "),\n"
-	   "                        INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 ")),\n",
-	   a.i8[ 0], a.i8[ 1], a.i8[ 2], a.i8[ 3], a.i8[ 4], a.i8[ 5], a.i8[ 6], a.i8[ 7],
-           a.i8[ 8], a.i8[ 9], a.i8[10], a.i8[11], a.i8[12], a.i8[13], a.i8[14], a.i8[15]);
-    printf("      simde_x_vloadq_s8(INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "),\n"
-	   "                        INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "),\n"
-           "                        INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "),\n"
-	   "                        INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 ")),\n",
-	   b.i8[ 0], b.i8[ 1], b.i8[ 2], b.i8[ 3], b.i8[ 4], b.i8[ 5], b.i8[ 6], b.i8[ 7],
-           b.i8[ 8], b.i8[ 9], b.i8[10], b.i8[11], b.i8[12], b.i8[13], b.i8[14], b.i8[15]);
-    printf("      simde_x_vloadq_s8(INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "),\n"
-	   "                        INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "),\n"
-           "                        INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "),\n"
-	   "                        INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 "), INT8_C(%4" PRId8 ")) },\n",
-	   r.i8[ 0], r.i8[ 1], r.i8[ 2], r.i8[ 3], r.i8[ 4], r.i8[ 5], r.i8[ 6], r.i8[ 7],
-           r.i8[ 8], r.i8[ 9], r.i8[10], r.i8[11], r.i8[12], r.i8[13], r.i8[14], r.i8[15]);
-  }
-  return MUNIT_FAIL;
 
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde_int8x16_t r = simde_vabdq_s8(test_vec[i].a, test_vec[i].b);
@@ -594,29 +560,56 @@ test_simde_vabdq_s16(const MunitParameter params[], void* data) {
     simde_int16x8_t b;
     simde_int16x8_t r;
   } test_vec[8] = {
+    { simde_x_vloadq_s16(INT16_C(-25074), INT16_C(  -272), INT16_C( -5137), INT16_C(-31115),
+                         INT16_C(   869), INT16_C( 10879), INT16_C(-21438), INT16_C( 10680)),
+      simde_x_vloadq_s16(INT16_C( 20581), INT16_C(-14570), INT16_C(-13531), INT16_C(-16673),
+                         INT16_C(-30484), INT16_C(   596), INT16_C( 27058), INT16_C(  3720)),
+      simde_x_vloadq_s16(INT16_C(-19881), INT16_C( 14298), INT16_C(  8394), INT16_C( 14442),
+                         INT16_C( 31353), INT16_C( 10283), INT16_C(-17040), INT16_C(  6960)) },
+    { simde_x_vloadq_s16(INT16_C( 23301), INT16_C( 12909), INT16_C( 17220), INT16_C( 19317),
+                         INT16_C( 20488), INT16_C( -4307), INT16_C(-10483), INT16_C( 10980)),
+      simde_x_vloadq_s16(INT16_C( 26258), INT16_C(-12620), INT16_C( 30452), INT16_C( 23272),
+                         INT16_C(-20989), INT16_C(-15134), INT16_C( -3995), INT16_C( -8099)),
+      simde_x_vloadq_s16(INT16_C(  2957), INT16_C( 25529), INT16_C( 13232), INT16_C(  3955),
+                         INT16_C(-24059), INT16_C( 10827), INT16_C(  6488), INT16_C( 19079)) },
+    { simde_x_vloadq_s16(INT16_C( 14839), INT16_C(-21798), INT16_C(-25657), INT16_C( 24123),
+                         INT16_C( 13201), INT16_C( -6261), INT16_C(-23333), INT16_C( -3061)),
+      simde_x_vloadq_s16(INT16_C( -3059), INT16_C(-16131), INT16_C( -2677), INT16_C( 17099),
+                         INT16_C(-16967), INT16_C( 14970), INT16_C( 14966), INT16_C(   733)),
+      simde_x_vloadq_s16(INT16_C( 17898), INT16_C(  5667), INT16_C( 22980), INT16_C(  7024),
+                         INT16_C( 30168), INT16_C( 21231), INT16_C(-27237), INT16_C(  3794)) },
+    { simde_x_vloadq_s16(INT16_C( -2124), INT16_C(-25699), INT16_C(-11645), INT16_C( 21077),
+                         INT16_C( 30539), INT16_C( 19861), INT16_C( -1840), INT16_C( 18358)),
+      simde_x_vloadq_s16(INT16_C( 11553), INT16_C(-30254), INT16_C( -3530), INT16_C( 16188),
+                         INT16_C( 30578), INT16_C(-23968), INT16_C(  5262), INT16_C( 22175)),
+      simde_x_vloadq_s16(INT16_C( 13677), INT16_C(  4555), INT16_C(  8115), INT16_C(  4889),
+                         INT16_C(    39), INT16_C(-21707), INT16_C(  7102), INT16_C(  3817)) },
+    { simde_x_vloadq_s16(INT16_C( 13896), INT16_C(-15195), INT16_C(-20237), INT16_C(-23344),
+                         INT16_C( 11080), INT16_C(-22075), INT16_C(-27965), INT16_C(-10124)),
+      simde_x_vloadq_s16(INT16_C( 18214), INT16_C( 13304), INT16_C( -3194), INT16_C( 16527),
+                         INT16_C(-26035), INT16_C(  1702), INT16_C( -9790), INT16_C(-12567)),
+      simde_x_vloadq_s16(INT16_C(  4318), INT16_C( 28499), INT16_C( 17043), INT16_C(-25665),
+                         INT16_C(-28421), INT16_C( 23777), INT16_C( 18175), INT16_C(  2443)) },
+    { simde_x_vloadq_s16(INT16_C(  5111), INT16_C( 15750), INT16_C(-22472), INT16_C( 31481),
+                         INT16_C(-28672), INT16_C( 14804), INT16_C(-22901), INT16_C( 23309)),
+      simde_x_vloadq_s16(INT16_C(-26074), INT16_C(-30498), INT16_C(-18211), INT16_C(-28407),
+                         INT16_C(  8026), INT16_C( -5402), INT16_C( 28848), INT16_C( -2125)),
+      simde_x_vloadq_s16(INT16_C( 31185), INT16_C(-19288), INT16_C(  4261), INT16_C( -5648),
+                         INT16_C(-28838), INT16_C( 20206), INT16_C(-13787), INT16_C( 25434)) },
+    { simde_x_vloadq_s16(INT16_C( 17250), INT16_C(-32557), INT16_C( 20234), INT16_C(-22779),
+                         INT16_C(-15730), INT16_C(-23528), INT16_C(-19144), INT16_C( 15806)),
+      simde_x_vloadq_s16(INT16_C(-25065), INT16_C(-27657), INT16_C(-11646), INT16_C( 10239),
+                         INT16_C( 31952), INT16_C(-11398), INT16_C( -4720), INT16_C(-22401)),
+      simde_x_vloadq_s16(INT16_C(-23221), INT16_C(  4900), INT16_C( 31880), INT16_C(-32518),
+                         INT16_C(-17854), INT16_C( 12130), INT16_C( 14424), INT16_C(-27329)) },
+    { simde_x_vloadq_s16(INT16_C( -5206), INT16_C(-26979), INT16_C(-31335), INT16_C( 16147),
+                         INT16_C( 24180), INT16_C( 16463), INT16_C(-10957), INT16_C(-31401)),
+      simde_x_vloadq_s16(INT16_C(  4783), INT16_C(-30153), INT16_C( -8645), INT16_C( 24752),
+                         INT16_C(-16707), INT16_C(-13426), INT16_C(-18758), INT16_C( -6321)),
+      simde_x_vloadq_s16(INT16_C(  9989), INT16_C(  3174), INT16_C( 22690), INT16_C(  8605),
+                         INT16_C(-24649), INT16_C( 29889), INT16_C(  7801), INT16_C( 25080)) },
 
   };
-
-  printf("\n");
-  for (size_t i = 0 ; i < (sizeof(test_vec) / (sizeof(test_vec[0]))) ; i++) {
-    simde_int16x8_t a, b, r;
-
-    munit_rand_memory(sizeof(a), (uint8_t*) &a);
-    munit_rand_memory(sizeof(b), (uint8_t*) &b);
-
-    r = simde_vabdq_s16(a, b);
-
-    printf("    { simde_x_vloadq_s16(INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "),\n"
-	   "                         INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 ")),\n",
-           a.i16[0], a.i16[1], a.i16[2], a.i16[3], a.i16[4], a.i16[5], a.i16[6], a.i16[7]);
-    printf("      simde_x_vloadq_s16(INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "),\n"
-	   "                         INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 ")),\n",
-           b.i16[0], b.i16[1], b.i16[2], b.i16[3], b.i16[4], b.i16[5], b.i16[6], b.i16[7]);
-    printf("      simde_x_vloadq_s16(INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "),\n"
-	   "                         INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 "), INT16_C(%6" PRId16 ")) },\n",
-           r.i16[0], r.i16[1], r.i16[2], r.i16[3], r.i16[4], r.i16[5], r.i16[6], r.i16[7]);
-  }
-  return MUNIT_FAIL;
 
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde_int16x8_t r = simde_vabdq_s16(test_vec[i].a, test_vec[i].b);
@@ -636,69 +629,60 @@ test_simde_vabdq_s32(const MunitParameter params[], void* data) {
     simde_int32x4_t b;
     simde_int32x4_t r;
   } test_vec[8] = {
+    { simde_x_vloadq_s32(INT32_C(  -17785330), INT32_C(-2039092241),
+                         INT32_C(  712967013), INT32_C(  699968578)),
+      simde_x_vloadq_s32(INT32_C( -954838939), INT32_C(-1092629723),
+                         INT32_C(   39094508), INT32_C(  243820978)),
+      simde_x_vloadq_s32(INT32_C(  937053609), INT32_C(  946462518),
+                         INT32_C(  673872505), INT32_C(  456147600)) },
+    { simde_x_vloadq_s32(INT32_C(  846027525), INT32_C( 1265976132),
+                         INT32_C( -282243064), INT32_C(  719640333)),
+      simde_x_vloadq_s32(INT32_C( -827038062), INT32_C( 1525184244),
+                         INT32_C( -991777277), INT32_C( -530714523)),
+      simde_x_vloadq_s32(INT32_C( 1673065587), INT32_C(  259208112),
+                         INT32_C(  709534213), INT32_C( 1250354856)) },
+    { simde_x_vloadq_s32(INT32_C(-1428538889), INT32_C( 1580964807),
+                         INT32_C( -410307695), INT32_C( -200563493)),
+      simde_x_vloadq_s32(INT32_C(-1057098739), INT32_C( 1120662923),
+                         INT32_C(  981122489), INT32_C(   48052854)),
+      simde_x_vloadq_s32(INT32_C(  371440150), INT32_C(  460301884),
+                         INT32_C( 1391430184), INT32_C(  248616347)) },
+    { simde_x_vloadq_s32(INT32_C(-1684146252), INT32_C( 1381356163),
+                         INT32_C( 1301641035), INT32_C( 1203173584)),
+      simde_x_vloadq_s32(INT32_C(-1982714591), INT32_C( 1060958774),
+                         INT32_C(-1570736270), INT32_C( 1453266062)),
+      simde_x_vloadq_s32(INT32_C(  298568339), INT32_C(  320397389),
+                         INT32_C(-1422589991), INT32_C(  250092478)) },
+    { simde_x_vloadq_s32(INT32_C( -995805624), INT32_C(-1529827085),
+                         INT32_C(-1446696120), INT32_C( -663448893)),
+      simde_x_vloadq_s32(INT32_C(  871909158), INT32_C( 1083175814),
+                         INT32_C(  111581773), INT32_C( -823535166)),
+      simde_x_vloadq_s32(INT32_C( 1867714782), INT32_C(-1681964397),
+                         INT32_C( 1558277893), INT32_C(  160086273)) },
+    { simde_x_vloadq_s32(INT32_C( 1032197111), INT32_C( 2063181880),
+                         INT32_C(  970231808), INT32_C( 1527621259)),
+      simde_x_vloadq_s32(INT32_C(-1998677466), INT32_C(-1861633827),
+                         INT32_C( -354017446), INT32_C( -139235152)),
+      simde_x_vloadq_s32(INT32_C(-1264092719), INT32_C( -370151589),
+                         INT32_C( 1324249254), INT32_C( 1666856411)) },
+    { simde_x_vloadq_s32(INT32_C(-2133638302), INT32_C(-1492824310),
+                         INT32_C(-1541881202), INT32_C( 1035908408)),
+      simde_x_vloadq_s32(INT32_C(-1812488681), INT32_C(  671076994),
+                         INT32_C( -746947376), INT32_C(-1468011120)),
+      simde_x_vloadq_s32(INT32_C(  321149621), INT32_C(-2131065992),
+                         INT32_C(  794933826), INT32_C(-1791047768)) },
+    { simde_x_vloadq_s32(INT32_C(-1768035414), INT32_C( 1058243993),
+                         INT32_C( 1078943348), INT32_C(-2057841357)),
+      simde_x_vloadq_s32(INT32_C(-1976102225), INT32_C( 1622203963),
+                         INT32_C( -879837507), INT32_C( -414206278)),
+      simde_x_vloadq_s32(INT32_C(  208066811), INT32_C(  563959970),
+                         INT32_C( 1958780855), INT32_C( 1643635079)) },
 
   };
-
-  printf("\n");
-  for (size_t i = 0 ; i < (sizeof(test_vec) / (sizeof(test_vec[0]))) ; i++) {
-    simde_int32x4_t a, b, r;
-
-    munit_rand_memory(sizeof(a), (uint8_t*) &a);
-    munit_rand_memory(sizeof(b), (uint8_t*) &b);
-
-    r = simde_vabdq_s32(a, b);
-
-    printf("    { simde_x_vloadq_s32(INT32_C(%11" PRId32 "), INT32_C(%11" PRId32 "),\n"
-	   "                         INT32_C(%11" PRId32 "), INT32_C(%11" PRId32 ")),\n",
-           a.i32[0], a.i32[1], a.i32[2], a.i32[3]);
-    printf("      simde_x_vloadq_s32(INT32_C(%11" PRId32 "), INT32_C(%11" PRId32 "),\n"
-	   "                         INT32_C(%11" PRId32 "), INT32_C(%11" PRId32 ")),\n",
-           b.i32[0], b.i32[1], b.i32[2], b.i32[3]);
-    printf("      simde_x_vloadq_s32(INT32_C(%11" PRId32 "), INT32_C(%11" PRId32 "),\n"
-	   "                         INT32_C(%11" PRId32 "), INT32_C(%11" PRId32 ")) },\n",
-           r.i32[0], r.i32[1], r.i32[2], r.i32[3]);
-  }
-  return MUNIT_FAIL;
 
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde_int32x4_t r = simde_vabdq_s32(test_vec[i].a, test_vec[i].b);
     simde_neon_assert_int32x4(r, ==, test_vec[i].r);
-  }
-
-  return MUNIT_OK;
-}
-
-static MunitResult
-test_simde_vabdq_s64(const MunitParameter params[], void* data) {
-  (void) params;
-  (void) data;
-
-  const struct {
-    simde_int64x2_t a;
-    simde_int64x2_t b;
-    simde_int64x2_t r;
-  } test_vec[8] = {
-
-  };
-
-  printf("\n");
-  for (size_t i = 0 ; i < (sizeof(test_vec) / (sizeof(test_vec[0]))) ; i++) {
-    simde_int64x2_t a, b, r;
-
-    munit_rand_memory(sizeof(a), (uint8_t*) &a);
-    munit_rand_memory(sizeof(b), (uint8_t*) &b);
-
-    r = simde_vabdq_s64(a, b);
-
-    printf("    { simde_x_vloadq_s64(INT64_C(%21" PRId64 "), INT64_C(%21" PRId64 ")),\n", a.i64[0], a.i64[1]);
-    printf("      simde_x_vloadq_s64(INT64_C(%21" PRId64 "), INT64_C(%21" PRId64 ")),\n", b.i64[0], b.i64[1]);
-    printf("      simde_x_vloadq_s64(INT64_C(%21" PRId64 "), INT64_C(%21" PRId64 ")) },\n", r.i64[0], r.i64[1]);
-  }
-  return MUNIT_FAIL;
-
-  for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
-    simde_int64x2_t r = simde_vabdq_s64(test_vec[i].a, test_vec[i].b);
-    simde_neon_assert_int64x2(r, ==, test_vec[i].r);
   }
 
   return MUNIT_OK;
@@ -714,38 +698,104 @@ test_simde_vabdq_u8(const MunitParameter params[], void* data) {
     simde_uint8x16_t b;
     simde_uint8x16_t r;
   } test_vec[8] = {
+    { simde_x_vloadq_u8(UINT8_C( 14), UINT8_C(158), UINT8_C(240), UINT8_C(254),
+                        UINT8_C(239), UINT8_C(235), UINT8_C(117), UINT8_C(134),
+                        UINT8_C(101), UINT8_C(  3), UINT8_C(127), UINT8_C( 42),
+                        UINT8_C( 66), UINT8_C(172), UINT8_C(184), UINT8_C( 41) ),
+      simde_x_vloadq_u8(UINT8_C(101), UINT8_C( 80), UINT8_C( 22), UINT8_C(199),
+                        UINT8_C( 37), UINT8_C(203), UINT8_C(223), UINT8_C(190),
+                        UINT8_C(236), UINT8_C(136), UINT8_C( 84), UINT8_C(  2),
+                        UINT8_C(178), UINT8_C(105), UINT8_C(136), UINT8_C( 14) ),
+      simde_x_vloadq_u8(UINT8_C( 87), UINT8_C( 78), UINT8_C(218), UINT8_C( 55),
+                        UINT8_C(202), UINT8_C( 32), UINT8_C(106), UINT8_C( 56),
+                        UINT8_C(135), UINT8_C(133), UINT8_C( 43), UINT8_C( 40),
+                        UINT8_C(112), UINT8_C( 67), UINT8_C( 48), UINT8_C( 27) ) },
+    { simde_x_vloadq_u8(UINT8_C(  5), UINT8_C( 91), UINT8_C(109), UINT8_C( 50),
+                        UINT8_C( 68), UINT8_C( 67), UINT8_C(117), UINT8_C( 75),
+                        UINT8_C(  8), UINT8_C( 80), UINT8_C( 45), UINT8_C(239),
+                        UINT8_C( 13), UINT8_C(215), UINT8_C(228), UINT8_C( 42) ),
+      simde_x_vloadq_u8(UINT8_C(146), UINT8_C(102), UINT8_C(180), UINT8_C(206),
+                        UINT8_C(244), UINT8_C(118), UINT8_C(232), UINT8_C( 90),
+                        UINT8_C(  3), UINT8_C(174), UINT8_C(226), UINT8_C(196),
+                        UINT8_C(101), UINT8_C(240), UINT8_C( 93), UINT8_C(224) ),
+      simde_x_vloadq_u8(UINT8_C(141), UINT8_C( 11), UINT8_C( 71), UINT8_C(156),
+                        UINT8_C(176), UINT8_C( 51), UINT8_C(115), UINT8_C( 15),
+                        UINT8_C(  5), UINT8_C( 94), UINT8_C(181), UINT8_C( 43),
+                        UINT8_C( 88), UINT8_C( 25), UINT8_C(135), UINT8_C(182) ) },
+    { simde_x_vloadq_u8(UINT8_C(247), UINT8_C( 57), UINT8_C(218), UINT8_C(170),
+                        UINT8_C(199), UINT8_C(155), UINT8_C( 59), UINT8_C( 94),
+                        UINT8_C(145), UINT8_C( 51), UINT8_C(139), UINT8_C(231),
+                        UINT8_C(219), UINT8_C(164), UINT8_C( 11), UINT8_C(244) ),
+      simde_x_vloadq_u8(UINT8_C( 13), UINT8_C(244), UINT8_C(253), UINT8_C(192),
+                        UINT8_C(139), UINT8_C(245), UINT8_C(203), UINT8_C( 66),
+                        UINT8_C(185), UINT8_C(189), UINT8_C(122), UINT8_C( 58),
+                        UINT8_C(118), UINT8_C( 58), UINT8_C(221), UINT8_C(  2) ),
+      simde_x_vloadq_u8(UINT8_C(234), UINT8_C(187), UINT8_C( 35), UINT8_C( 22),
+                        UINT8_C( 60), UINT8_C( 90), UINT8_C(144), UINT8_C( 28),
+                        UINT8_C( 40), UINT8_C(138), UINT8_C( 17), UINT8_C(173),
+                        UINT8_C(101), UINT8_C(106), UINT8_C(210), UINT8_C(242) ) },
+    { simde_x_vloadq_u8(UINT8_C(180), UINT8_C(247), UINT8_C(157), UINT8_C(155),
+                        UINT8_C(131), UINT8_C(210), UINT8_C( 85), UINT8_C( 82),
+                        UINT8_C( 75), UINT8_C(119), UINT8_C(149), UINT8_C( 77),
+                        UINT8_C(208), UINT8_C(248), UINT8_C(182), UINT8_C( 71) ),
+      simde_x_vloadq_u8(UINT8_C( 33), UINT8_C( 45), UINT8_C(210), UINT8_C(137),
+                        UINT8_C( 54), UINT8_C(242), UINT8_C( 60), UINT8_C( 63),
+                        UINT8_C(114), UINT8_C(119), UINT8_C( 96), UINT8_C(162),
+                        UINT8_C(142), UINT8_C( 20), UINT8_C(159), UINT8_C( 86) ),
+      simde_x_vloadq_u8(UINT8_C(147), UINT8_C(202), UINT8_C( 53), UINT8_C( 18),
+                        UINT8_C( 77), UINT8_C( 32), UINT8_C( 25), UINT8_C( 19),
+                        UINT8_C( 39), UINT8_C(  0), UINT8_C( 53), UINT8_C( 85),
+                        UINT8_C( 66), UINT8_C(228), UINT8_C( 23), UINT8_C( 15) ) },
+    { simde_x_vloadq_u8(UINT8_C( 72), UINT8_C( 54), UINT8_C(165), UINT8_C(196),
+                        UINT8_C(243), UINT8_C(176), UINT8_C(208), UINT8_C(164),
+                        UINT8_C( 72), UINT8_C( 43), UINT8_C(197), UINT8_C(169),
+                        UINT8_C(195), UINT8_C(146), UINT8_C(116), UINT8_C(216) ),
+      simde_x_vloadq_u8(UINT8_C( 38), UINT8_C( 71), UINT8_C(248), UINT8_C( 51),
+                        UINT8_C(134), UINT8_C(243), UINT8_C(143), UINT8_C( 64),
+                        UINT8_C( 77), UINT8_C(154), UINT8_C(166), UINT8_C(  6),
+                        UINT8_C(194), UINT8_C(217), UINT8_C(233), UINT8_C(206) ),
+      simde_x_vloadq_u8(UINT8_C( 34), UINT8_C( 17), UINT8_C( 83), UINT8_C(145),
+                        UINT8_C(109), UINT8_C( 67), UINT8_C( 65), UINT8_C(100),
+                        UINT8_C(  5), UINT8_C(111), UINT8_C( 31), UINT8_C(163),
+                        UINT8_C(  1), UINT8_C( 71), UINT8_C(117), UINT8_C( 10) ) },
+    { simde_x_vloadq_u8(UINT8_C(247), UINT8_C( 19), UINT8_C(134), UINT8_C( 61),
+                        UINT8_C( 56), UINT8_C(168), UINT8_C(249), UINT8_C(122),
+                        UINT8_C(  0), UINT8_C(144), UINT8_C(212), UINT8_C( 57),
+                        UINT8_C(139), UINT8_C(166), UINT8_C( 13), UINT8_C( 91) ),
+      simde_x_vloadq_u8(UINT8_C( 38), UINT8_C(154), UINT8_C(222), UINT8_C(136),
+                        UINT8_C(221), UINT8_C(184), UINT8_C(  9), UINT8_C(145),
+                        UINT8_C( 90), UINT8_C( 31), UINT8_C(230), UINT8_C(234),
+                        UINT8_C(176), UINT8_C(112), UINT8_C(179), UINT8_C(247) ),
+      simde_x_vloadq_u8(UINT8_C(209), UINT8_C(135), UINT8_C( 88), UINT8_C( 75),
+                        UINT8_C(165), UINT8_C( 16), UINT8_C(240), UINT8_C( 23),
+                        UINT8_C( 90), UINT8_C(113), UINT8_C( 18), UINT8_C(177),
+                        UINT8_C( 37), UINT8_C( 54), UINT8_C(166), UINT8_C(156) ) },
+    { simde_x_vloadq_u8(UINT8_C( 98), UINT8_C( 67), UINT8_C(211), UINT8_C(128),
+                        UINT8_C( 10), UINT8_C( 79), UINT8_C(  5), UINT8_C(167),
+                        UINT8_C(142), UINT8_C(194), UINT8_C( 24), UINT8_C(164),
+                        UINT8_C( 56), UINT8_C(181), UINT8_C(190), UINT8_C( 61) ),
+      simde_x_vloadq_u8(UINT8_C( 23), UINT8_C(158), UINT8_C(247), UINT8_C(147),
+                        UINT8_C(130), UINT8_C(210), UINT8_C(255), UINT8_C( 39),
+                        UINT8_C(208), UINT8_C(124), UINT8_C(122), UINT8_C(211),
+                        UINT8_C(144), UINT8_C(237), UINT8_C(127), UINT8_C(168) ),
+      simde_x_vloadq_u8(UINT8_C( 75), UINT8_C( 91), UINT8_C( 36), UINT8_C( 19),
+                        UINT8_C(120), UINT8_C(131), UINT8_C(250), UINT8_C(128),
+                        UINT8_C( 66), UINT8_C( 70), UINT8_C( 98), UINT8_C( 47),
+                        UINT8_C( 88), UINT8_C( 56), UINT8_C( 63), UINT8_C(107) ) },
+    { simde_x_vloadq_u8(UINT8_C(170), UINT8_C(235), UINT8_C(157), UINT8_C(150),
+                        UINT8_C(153), UINT8_C(133), UINT8_C( 19), UINT8_C( 63),
+                        UINT8_C(116), UINT8_C( 94), UINT8_C( 79), UINT8_C( 64),
+                        UINT8_C( 51), UINT8_C(213), UINT8_C( 87), UINT8_C(133) ),
+      simde_x_vloadq_u8(UINT8_C(175), UINT8_C( 18), UINT8_C( 55), UINT8_C(138),
+                        UINT8_C( 59), UINT8_C(222), UINT8_C(176), UINT8_C( 96),
+                        UINT8_C(189), UINT8_C(190), UINT8_C(142), UINT8_C(203),
+                        UINT8_C(186), UINT8_C(182), UINT8_C( 79), UINT8_C(231) ),
+      simde_x_vloadq_u8(UINT8_C(  5), UINT8_C(217), UINT8_C(102), UINT8_C( 12),
+                        UINT8_C( 94), UINT8_C( 89), UINT8_C(157), UINT8_C( 33),
+                        UINT8_C( 73), UINT8_C( 96), UINT8_C( 63), UINT8_C(139),
+                        UINT8_C(135), UINT8_C( 31), UINT8_C(  8), UINT8_C( 98) ) },
 
   };
-
-  printf("\n");
-  for (size_t i = 0 ; i < (sizeof(test_vec) / (sizeof(test_vec[0]))) ; i++) {
-    simde_uint8x16_t a, b, r;
-
-    munit_rand_memory(sizeof(a), (uint8_t*) &a);
-    munit_rand_memory(sizeof(b), (uint8_t*) &b);
-
-    r = simde_vabdq_u8(a, b);
-
-    printf("    { simde_x_vloadq_u8(UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "),\n"
-           "                        UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "),\n"
-           "                        UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "),\n"
-           "                        UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 ") ),\n",
-           a.u8[0], a.u8[1], a.u8[ 2], a.u8[ 3], a.u8[ 4], a.u8[ 5], a.u8[ 6], a.u8[ 7],
-           a.u8[8], a.u8[9], a.u8[10], a.u8[11], a.u8[12], a.u8[13], a.u8[14], a.u8[15]);
-    printf("      simde_x_vloadq_u8(UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "),\n"
-           "                        UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "),\n"
-           "                        UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "),\n"
-           "                        UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 ") ),\n",
-           b.u8[0], b.u8[1], b.u8[ 2], b.u8[ 3], b.u8[ 4], b.u8[ 5], b.u8[ 6], b.u8[ 7],
-           b.u8[8], b.u8[9], b.u8[10], b.u8[11], b.u8[12], b.u8[13], b.u8[14], b.u8[15]);
-    printf("      simde_x_vloadq_u8(UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "),\n"
-           "                        UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "),\n"
-           "                        UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "),\n"
-           "                        UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 "), UINT8_C(%3" PRIu8 ") ) },\n",
-           r.u8[0], r.u8[1], r.u8[ 2], r.u8[ 3], r.u8[ 4], r.u8[ 5], r.u8[ 6], r.u8[ 7],
-           r.u8[8], r.u8[9], r.u8[10], r.u8[11], r.u8[12], r.u8[13], r.u8[14], r.u8[15]);
-  }
-  return MUNIT_FAIL;
 
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde_uint8x16_t r = simde_vabdq_u8(test_vec[i].a, test_vec[i].b);
@@ -765,29 +815,56 @@ test_simde_vabdq_u16(const MunitParameter params[], void* data) {
     simde_uint16x8_t b;
     simde_uint16x8_t r;
   } test_vec[8] = {
+    { simde_x_vloadq_u16(UINT16_C(40462), UINT16_C(65264), UINT16_C(60399), UINT16_C(34421),
+                         UINT16_C(  869), UINT16_C(10879), UINT16_C(44098), UINT16_C(10680)),
+      simde_x_vloadq_u16(UINT16_C(20581), UINT16_C(50966), UINT16_C(52005), UINT16_C(48863),
+                         UINT16_C(35052), UINT16_C(  596), UINT16_C(27058), UINT16_C( 3720)),
+      simde_x_vloadq_u16(UINT16_C(19881), UINT16_C(14298), UINT16_C( 8394), UINT16_C(14442),
+                         UINT16_C(34183), UINT16_C(10283), UINT16_C(17040), UINT16_C( 6960)) },
+    { simde_x_vloadq_u16(UINT16_C(23301), UINT16_C(12909), UINT16_C(17220), UINT16_C(19317),
+                         UINT16_C(20488), UINT16_C(61229), UINT16_C(55053), UINT16_C(10980)),
+      simde_x_vloadq_u16(UINT16_C(26258), UINT16_C(52916), UINT16_C(30452), UINT16_C(23272),
+                         UINT16_C(44547), UINT16_C(50402), UINT16_C(61541), UINT16_C(57437)),
+      simde_x_vloadq_u16(UINT16_C( 2957), UINT16_C(40007), UINT16_C(13232), UINT16_C( 3955),
+                         UINT16_C(24059), UINT16_C(10827), UINT16_C( 6488), UINT16_C(46457)) },
+    { simde_x_vloadq_u16(UINT16_C(14839), UINT16_C(43738), UINT16_C(39879), UINT16_C(24123),
+                         UINT16_C(13201), UINT16_C(59275), UINT16_C(42203), UINT16_C(62475)),
+      simde_x_vloadq_u16(UINT16_C(62477), UINT16_C(49405), UINT16_C(62859), UINT16_C(17099),
+                         UINT16_C(48569), UINT16_C(14970), UINT16_C(14966), UINT16_C(  733)),
+      simde_x_vloadq_u16(UINT16_C(47638), UINT16_C( 5667), UINT16_C(22980), UINT16_C( 7024),
+                         UINT16_C(35368), UINT16_C(44305), UINT16_C(27237), UINT16_C(61742)) },
+    { simde_x_vloadq_u16(UINT16_C(63412), UINT16_C(39837), UINT16_C(53891), UINT16_C(21077),
+                         UINT16_C(30539), UINT16_C(19861), UINT16_C(63696), UINT16_C(18358)),
+      simde_x_vloadq_u16(UINT16_C(11553), UINT16_C(35282), UINT16_C(62006), UINT16_C(16188),
+                         UINT16_C(30578), UINT16_C(41568), UINT16_C( 5262), UINT16_C(22175)),
+      simde_x_vloadq_u16(UINT16_C(51859), UINT16_C( 4555), UINT16_C( 8115), UINT16_C( 4889),
+                         UINT16_C(   39), UINT16_C(21707), UINT16_C(58434), UINT16_C( 3817)) },
+    { simde_x_vloadq_u16(UINT16_C(13896), UINT16_C(50341), UINT16_C(45299), UINT16_C(42192),
+                         UINT16_C(11080), UINT16_C(43461), UINT16_C(37571), UINT16_C(55412)),
+      simde_x_vloadq_u16(UINT16_C(18214), UINT16_C(13304), UINT16_C(62342), UINT16_C(16527),
+                         UINT16_C(39501), UINT16_C( 1702), UINT16_C(55746), UINT16_C(52969)),
+      simde_x_vloadq_u16(UINT16_C( 4318), UINT16_C(37037), UINT16_C(17043), UINT16_C(25665),
+                         UINT16_C(28421), UINT16_C(41759), UINT16_C(18175), UINT16_C( 2443)) },
+    { simde_x_vloadq_u16(UINT16_C( 5111), UINT16_C(15750), UINT16_C(43064), UINT16_C(31481),
+                         UINT16_C(36864), UINT16_C(14804), UINT16_C(42635), UINT16_C(23309)),
+      simde_x_vloadq_u16(UINT16_C(39462), UINT16_C(35038), UINT16_C(47325), UINT16_C(37129),
+                         UINT16_C( 8026), UINT16_C(60134), UINT16_C(28848), UINT16_C(63411)),
+      simde_x_vloadq_u16(UINT16_C(34351), UINT16_C(19288), UINT16_C( 4261), UINT16_C( 5648),
+                         UINT16_C(28838), UINT16_C(45330), UINT16_C(13787), UINT16_C(40102)) },
+    { simde_x_vloadq_u16(UINT16_C(17250), UINT16_C(32979), UINT16_C(20234), UINT16_C(42757),
+                         UINT16_C(49806), UINT16_C(42008), UINT16_C(46392), UINT16_C(15806)),
+      simde_x_vloadq_u16(UINT16_C(40471), UINT16_C(37879), UINT16_C(53890), UINT16_C(10239),
+                         UINT16_C(31952), UINT16_C(54138), UINT16_C(60816), UINT16_C(43135)),
+      simde_x_vloadq_u16(UINT16_C(23221), UINT16_C( 4900), UINT16_C(33656), UINT16_C(32518),
+                         UINT16_C(17854), UINT16_C(12130), UINT16_C(14424), UINT16_C(27329)) },
+    { simde_x_vloadq_u16(UINT16_C(60330), UINT16_C(38557), UINT16_C(34201), UINT16_C(16147),
+                         UINT16_C(24180), UINT16_C(16463), UINT16_C(54579), UINT16_C(34135)),
+      simde_x_vloadq_u16(UINT16_C( 4783), UINT16_C(35383), UINT16_C(56891), UINT16_C(24752),
+                         UINT16_C(48829), UINT16_C(52110), UINT16_C(46778), UINT16_C(59215)),
+      simde_x_vloadq_u16(UINT16_C(55547), UINT16_C( 3174), UINT16_C(22690), UINT16_C( 8605),
+                         UINT16_C(24649), UINT16_C(35647), UINT16_C( 7801), UINT16_C(25080)) },
 
   };
-
-  printf("\n");
-  for (size_t i = 0 ; i < (sizeof(test_vec) / (sizeof(test_vec[0]))) ; i++) {
-    simde_uint16x8_t a, b, r;
-
-    munit_rand_memory(sizeof(a), (uint8_t*) &a);
-    munit_rand_memory(sizeof(b), (uint8_t*) &b);
-
-    r = simde_vabdq_u16(a, b);
-
-    printf("    { simde_x_vloadq_u16(UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "),\n"
-           "                         UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 ")),\n",
-           a.u16[0], a.u16[1], a.u16[2], a.u16[3], a.u16[4], a.u16[5], a.u16[6], a.u16[7]);
-    printf("      simde_x_vloadq_u16(UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "),\n"
-           "                         UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 ")),\n",
-           b.u16[0], b.u16[1], b.u16[2], b.u16[3], b.u16[4], b.u16[5], b.u16[6], b.u16[7]);
-    printf("      simde_x_vloadq_u16(UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "),\n"
-           "                         UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 "), UINT16_C(%5" PRIu16 ")) },\n",
-           r.u16[0], r.u16[1], r.u16[2], r.u16[3], r.u16[4], r.u16[5], r.u16[6], r.u16[7]);
-  }
-  return MUNIT_FAIL;
 
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde_uint16x8_t r = simde_vabdq_u16(test_vec[i].a, test_vec[i].b);
@@ -807,72 +884,60 @@ test_simde_vabdq_u32(const MunitParameter params[], void* data) {
     simde_uint32x4_t b;
     simde_uint32x4_t r;
   } test_vec[8] = {
+    { simde_x_vloadq_u32(UINT32_C(4277181966), UINT32_C(2255875055),
+                         UINT32_C( 712967013), UINT32_C( 699968578)),
+      simde_x_vloadq_u32(UINT32_C(3340128357), UINT32_C(3202337573),
+                         UINT32_C(  39094508), UINT32_C( 243820978)),
+      simde_x_vloadq_u32(UINT32_C( 937053609), UINT32_C( 946462518),
+                         UINT32_C( 673872505), UINT32_C( 456147600)) },
+    { simde_x_vloadq_u32(UINT32_C( 846027525), UINT32_C(1265976132),
+                         UINT32_C(4012724232), UINT32_C( 719640333)),
+      simde_x_vloadq_u32(UINT32_C(3467929234), UINT32_C(1525184244),
+                         UINT32_C(3303190019), UINT32_C(3764252773)),
+      simde_x_vloadq_u32(UINT32_C(2621901709), UINT32_C( 259208112),
+                         UINT32_C( 709534213), UINT32_C(3044612440)) },
+    { simde_x_vloadq_u32(UINT32_C(2866428407), UINT32_C(1580964807),
+                         UINT32_C(3884659601), UINT32_C(4094403803)),
+      simde_x_vloadq_u32(UINT32_C(3237868557), UINT32_C(1120662923),
+                         UINT32_C( 981122489), UINT32_C(  48052854)),
+      simde_x_vloadq_u32(UINT32_C( 371440150), UINT32_C( 460301884),
+                         UINT32_C(2903537112), UINT32_C(4046350949)) },
+    { simde_x_vloadq_u32(UINT32_C(2610821044), UINT32_C(1381356163),
+                         UINT32_C(1301641035), UINT32_C(1203173584)),
+      simde_x_vloadq_u32(UINT32_C(2312252705), UINT32_C(1060958774),
+                         UINT32_C(2724231026), UINT32_C(1453266062)),
+      simde_x_vloadq_u32(UINT32_C( 298568339), UINT32_C( 320397389),
+                         UINT32_C(1422589991), UINT32_C( 250092478)) },
+    { simde_x_vloadq_u32(UINT32_C(3299161672), UINT32_C(2765140211),
+                         UINT32_C(2848271176), UINT32_C(3631518403)),
+      simde_x_vloadq_u32(UINT32_C( 871909158), UINT32_C(1083175814),
+                         UINT32_C( 111581773), UINT32_C(3471432130)),
+      simde_x_vloadq_u32(UINT32_C(2427252514), UINT32_C(1681964397),
+                         UINT32_C(2736689403), UINT32_C( 160086273)) },
+    { simde_x_vloadq_u32(UINT32_C(1032197111), UINT32_C(2063181880),
+                         UINT32_C( 970231808), UINT32_C(1527621259)),
+      simde_x_vloadq_u32(UINT32_C(2296289830), UINT32_C(2433333469),
+                         UINT32_C(3940949850), UINT32_C(4155732144)),
+      simde_x_vloadq_u32(UINT32_C(1264092719), UINT32_C( 370151589),
+                         UINT32_C(2970718042), UINT32_C(2628110885)) },
+    { simde_x_vloadq_u32(UINT32_C(2161328994), UINT32_C(2802142986),
+                         UINT32_C(2753086094), UINT32_C(1035908408)),
+      simde_x_vloadq_u32(UINT32_C(2482478615), UINT32_C( 671076994),
+                         UINT32_C(3548019920), UINT32_C(2826956176)),
+      simde_x_vloadq_u32(UINT32_C( 321149621), UINT32_C(2131065992),
+                         UINT32_C( 794933826), UINT32_C(1791047768)) },
+    { simde_x_vloadq_u32(UINT32_C(2526931882), UINT32_C(1058243993),
+                         UINT32_C(1078943348), UINT32_C(2237125939)),
+      simde_x_vloadq_u32(UINT32_C(2318865071), UINT32_C(1622203963),
+                         UINT32_C(3415129789), UINT32_C(3880761018)),
+      simde_x_vloadq_u32(UINT32_C( 208066811), UINT32_C( 563959970),
+                         UINT32_C(2336186441), UINT32_C(1643635079)) },
 
   };
-
-  printf("\n");
-  for (size_t i = 0 ; i < (sizeof(test_vec) / (sizeof(test_vec[0]))) ; i++) {
-    simde_uint32x4_t a, b, r;
-
-    munit_rand_memory(sizeof(a), (uint8_t*) &a);
-    munit_rand_memory(sizeof(b), (uint8_t*) &b);
-
-    r = simde_vabdq_u32(a, b);
-
-    printf("    { simde_x_vloadq_u32(UINT32_C(%10" PRIu32 "), UINT32_C(%10" PRIu32 "),\n"
-           "                         UINT32_C(%10" PRIu32 "), UINT32_C(%10" PRIu32 ")),\n",
-           a.u32[0], a.u32[1], a.u32[2], a.u32[3]);
-    printf("      simde_x_vloadq_u32(UINT32_C(%10" PRIu32 "), UINT32_C(%10" PRIu32 "),\n"
-           "                         UINT32_C(%10" PRIu32 "), UINT32_C(%10" PRIu32 ")),\n",
-           b.u32[0], b.u32[1], b.u32[2], b.u32[3]);
-    printf("      simde_x_vloadq_u32(UINT32_C(%10" PRIu32 "), UINT32_C(%10" PRIu32 "),\n"
-           "                         UINT32_C(%10" PRIu32 "), UINT32_C(%10" PRIu32 ")) },\n",
-           r.u32[0], r.u32[1], r.u32[2], r.u32[3]);
-  }
-  return MUNIT_FAIL;
 
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde_uint32x4_t r = simde_vabdq_u32(test_vec[i].a, test_vec[i].b);
     simde_neon_assert_uint32x4(r, ==, test_vec[i].r);
-  }
-
-  return MUNIT_OK;
-}
-
-static MunitResult
-test_simde_vabdq_u64(const MunitParameter params[], void* data) {
-  (void) params;
-  (void) data;
-
-  const struct {
-    simde_uint64x2_t a;
-    simde_uint64x2_t b;
-    simde_uint64x2_t r;
-  } test_vec[8] = {
-
-  };
-
-  printf("\n");
-  for (size_t i = 0 ; i < (sizeof(test_vec) / (sizeof(test_vec[0]))) ; i++) {
-    simde_uint64x2_t a, b, r;
-
-    munit_rand_memory(sizeof(a), (uint8_t*) &a);
-    munit_rand_memory(sizeof(b), (uint8_t*) &b);
-
-    r = simde_vabdq_u64(a, b);
-
-    printf("    { simde_x_vloadq_u64(UINT64_C(%19" PRIu64 "), UINT64_C(%19" PRIu64 ")),\n",
-           a.u64[0], a.u64[1]);
-    printf("      simde_x_vloadq_u64(UINT64_C(%19" PRIu64 "), UINT64_C(%19" PRIu64 ")),\n",
-           b.u64[0], b.u64[1]);
-    printf("      simde_x_vloadq_u64(UINT64_C(%19" PRIu64 "), UINT64_C(%19" PRIu64 ")) },\n",
-           r.u64[0], r.u64[1]);
-  }
-  return MUNIT_FAIL;
-
-  for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
-    simde_uint64x2_t r = simde_vabdq_u64(test_vec[i].a, test_vec[i].b);
-    simde_neon_assert_uint64x2(r, ==, test_vec[i].r);
   }
 
   return MUNIT_OK;
@@ -888,29 +953,56 @@ test_simde_vabdq_f32(const MunitParameter params[], void* data) {
     simde_float32x4_t b;
     simde_float32x4_t r;
   } test_vec[8] = {
+    { simde_x_vloadq_f32(SIMDE_FLOAT32_C(  809.06), SIMDE_FLOAT32_C(  792.36),
+                         SIMDE_FLOAT32_C( -151.88), SIMDE_FLOAT32_C(  133.98)),
+      simde_x_vloadq_f32(SIMDE_FLOAT32_C(  642.01), SIMDE_FLOAT32_C( -273.66),
+                         SIMDE_FLOAT32_C( -754.30), SIMDE_FLOAT32_C( -813.46)),
+      simde_x_vloadq_f32(SIMDE_FLOAT32_C(  167.05), SIMDE_FLOAT32_C( 1066.02),
+                         SIMDE_FLOAT32_C(  602.42), SIMDE_FLOAT32_C(  947.44)) },
+    { simde_x_vloadq_f32(SIMDE_FLOAT32_C( -220.83), SIMDE_FLOAT32_C( -469.27),
+                         SIMDE_FLOAT32_C(  757.44), SIMDE_FLOAT32_C(  154.41)),
+      simde_x_vloadq_f32(SIMDE_FLOAT32_C( -553.06), SIMDE_FLOAT32_C(  829.15),
+                         SIMDE_FLOAT32_C( -679.80), SIMDE_FLOAT32_C( -243.74)),
+      simde_x_vloadq_f32(SIMDE_FLOAT32_C(  332.23), SIMDE_FLOAT32_C( 1298.42),
+                         SIMDE_FLOAT32_C( 1437.24), SIMDE_FLOAT32_C(  398.15)) },
+    { simde_x_vloadq_f32(SIMDE_FLOAT32_C(  999.88), SIMDE_FLOAT32_C(  445.78),
+                         SIMDE_FLOAT32_C(  341.40), SIMDE_FLOAT32_C( -293.17)),
+      simde_x_vloadq_f32(SIMDE_FLOAT32_C(  471.36), SIMDE_FLOAT32_C( -272.46),
+                         SIMDE_FLOAT32_C(  910.81), SIMDE_FLOAT32_C(  911.89)),
+      simde_x_vloadq_f32(SIMDE_FLOAT32_C(  528.52), SIMDE_FLOAT32_C(  718.24),
+                         SIMDE_FLOAT32_C(  569.41), SIMDE_FLOAT32_C( 1205.06)) },
+    { simde_x_vloadq_f32(SIMDE_FLOAT32_C( -406.43), SIMDE_FLOAT32_C(  -70.51),
+                         SIMDE_FLOAT32_C( -775.79), SIMDE_FLOAT32_C(  949.15)),
+      simde_x_vloadq_f32(SIMDE_FLOAT32_C(   83.98), SIMDE_FLOAT32_C(  583.58),
+                         SIMDE_FLOAT32_C(  -32.22), SIMDE_FLOAT32_C(  -55.64)),
+      simde_x_vloadq_f32(SIMDE_FLOAT32_C(  490.41), SIMDE_FLOAT32_C(  654.09),
+                         SIMDE_FLOAT32_C(  743.57), SIMDE_FLOAT32_C( 1004.79)) },
+    { simde_x_vloadq_f32(SIMDE_FLOAT32_C( -256.50), SIMDE_FLOAT32_C( -160.25),
+                         SIMDE_FLOAT32_C(  173.41), SIMDE_FLOAT32_C(  754.36)),
+      simde_x_vloadq_f32(SIMDE_FLOAT32_C( -426.99), SIMDE_FLOAT32_C(  645.30),
+                         SIMDE_FLOAT32_C(  712.81), SIMDE_FLOAT32_C( -697.36)),
+      simde_x_vloadq_f32(SIMDE_FLOAT32_C(  170.49), SIMDE_FLOAT32_C(  805.55),
+                         SIMDE_FLOAT32_C(  539.40), SIMDE_FLOAT32_C( 1451.72)) },
+    { simde_x_vloadq_f32(SIMDE_FLOAT32_C(  811.35), SIMDE_FLOAT32_C( -771.16),
+                         SIMDE_FLOAT32_C(  347.51), SIMDE_FLOAT32_C(  -97.52)),
+      simde_x_vloadq_f32(SIMDE_FLOAT32_C( -693.44), SIMDE_FLOAT32_C( -760.46),
+                         SIMDE_FLOAT32_C(  769.64), SIMDE_FLOAT32_C(  240.65)),
+      simde_x_vloadq_f32(SIMDE_FLOAT32_C( 1504.79), SIMDE_FLOAT32_C(   10.70),
+                         SIMDE_FLOAT32_C(  422.13), SIMDE_FLOAT32_C(  338.17)) },
+    { simde_x_vloadq_f32(SIMDE_FLOAT32_C(  163.33), SIMDE_FLOAT32_C(   43.82),
+                         SIMDE_FLOAT32_C(   23.66), SIMDE_FLOAT32_C( -372.81)),
+      simde_x_vloadq_f32(SIMDE_FLOAT32_C(  860.25), SIMDE_FLOAT32_C(  168.84),
+                         SIMDE_FLOAT32_C(  714.53), SIMDE_FLOAT32_C( -652.76)),
+      simde_x_vloadq_f32(SIMDE_FLOAT32_C(  696.92), SIMDE_FLOAT32_C(  125.02),
+                         SIMDE_FLOAT32_C(  690.87), SIMDE_FLOAT32_C(  279.95)) },
+    { simde_x_vloadq_f32(SIMDE_FLOAT32_C( -211.43), SIMDE_FLOAT32_C( -586.28),
+                         SIMDE_FLOAT32_C(  864.71), SIMDE_FLOAT32_C( -665.46)),
+      simde_x_vloadq_f32(SIMDE_FLOAT32_C(  170.31), SIMDE_FLOAT32_C( -349.99),
+                         SIMDE_FLOAT32_C( -159.20), SIMDE_FLOAT32_C( -916.00)),
+      simde_x_vloadq_f32(SIMDE_FLOAT32_C(  381.74), SIMDE_FLOAT32_C(  236.29),
+                         SIMDE_FLOAT32_C( 1023.91), SIMDE_FLOAT32_C(  250.54)) },
 
   };
-
-  printf("\n");
-  for (size_t i = 0 ; i < (sizeof(test_vec) / (sizeof(test_vec[0]))) ; i++) {
-    simde_float32x4_t a, b, r;
-
-    a = simde_neon_random_float32x4();
-    b = simde_neon_random_float32x4();
-
-    r = simde_vabdq_f32(a, b);
-
-    printf("    { simde_x_vloadq_f32(SIMDE_FLOAT32_C(%*.2f), SIMDE_FLOAT32_C(%*.2f),\n"
-           "                         SIMDE_FLOAT32_C(%*.2f), SIMDE_FLOAT32_C(%*.2f)),\n",
-           8, a.f32[0], 8, a.f32[1], 8, a.f32[2], 8, a.f32[3]);
-    printf("      simde_x_vloadq_f32(SIMDE_FLOAT32_C(%*.2f), SIMDE_FLOAT32_C(%*.2f),\n"
-           "                         SIMDE_FLOAT32_C(%*.2f), SIMDE_FLOAT32_C(%*.2f)),\n",
-           8, b.f32[0], 8, b.f32[1], 8, b.f32[2], 8, b.f32[3]);
-    printf("      simde_x_vloadq_f32(SIMDE_FLOAT32_C(%*.2f), SIMDE_FLOAT32_C(%*.2f),\n"
-           "                         SIMDE_FLOAT32_C(%*.2f), SIMDE_FLOAT32_C(%*.2f)) },\n",
-           8, r.f32[0], 8, r.f32[1], 8, r.f32[2], 8, r.f32[3]);
-  }
-  return MUNIT_FAIL;
 
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde_float32x4_t r = simde_vabdq_f32(test_vec[i].a, test_vec[i].b);
@@ -930,26 +1022,32 @@ test_simde_vabdq_f64(const MunitParameter params[], void* data) {
     simde_float64x2_t b;
     simde_float64x2_t r;
   } test_vec[8] = {
+    { simde_x_vloadq_f64(SIMDE_FLOAT64_C(  809.06), SIMDE_FLOAT64_C(  792.36)),
+      simde_x_vloadq_f64(SIMDE_FLOAT64_C( -151.88), SIMDE_FLOAT64_C(  133.98)),
+      simde_x_vloadq_f64(SIMDE_FLOAT64_C(  960.94), SIMDE_FLOAT64_C(  658.38)) },
+    { simde_x_vloadq_f64(SIMDE_FLOAT64_C(  642.01), SIMDE_FLOAT64_C( -273.66)),
+      simde_x_vloadq_f64(SIMDE_FLOAT64_C( -754.30), SIMDE_FLOAT64_C( -813.46)),
+      simde_x_vloadq_f64(SIMDE_FLOAT64_C( 1396.31), SIMDE_FLOAT64_C(  539.80)) },
+    { simde_x_vloadq_f64(SIMDE_FLOAT64_C( -220.83), SIMDE_FLOAT64_C( -469.27)),
+      simde_x_vloadq_f64(SIMDE_FLOAT64_C(  757.44), SIMDE_FLOAT64_C(  154.41)),
+      simde_x_vloadq_f64(SIMDE_FLOAT64_C(  978.27), SIMDE_FLOAT64_C(  623.68)) },
+    { simde_x_vloadq_f64(SIMDE_FLOAT64_C( -553.06), SIMDE_FLOAT64_C(  829.15)),
+      simde_x_vloadq_f64(SIMDE_FLOAT64_C( -679.80), SIMDE_FLOAT64_C( -243.74)),
+      simde_x_vloadq_f64(SIMDE_FLOAT64_C(  126.74), SIMDE_FLOAT64_C( 1072.89)) },
+    { simde_x_vloadq_f64(SIMDE_FLOAT64_C(  999.88), SIMDE_FLOAT64_C(  445.78)),
+      simde_x_vloadq_f64(SIMDE_FLOAT64_C(  341.40), SIMDE_FLOAT64_C( -293.17)),
+      simde_x_vloadq_f64(SIMDE_FLOAT64_C(  658.48), SIMDE_FLOAT64_C(  738.95)) },
+    { simde_x_vloadq_f64(SIMDE_FLOAT64_C(  471.36), SIMDE_FLOAT64_C( -272.46)),
+      simde_x_vloadq_f64(SIMDE_FLOAT64_C(  910.81), SIMDE_FLOAT64_C(  911.89)),
+      simde_x_vloadq_f64(SIMDE_FLOAT64_C(  439.45), SIMDE_FLOAT64_C( 1184.35)) },
+    { simde_x_vloadq_f64(SIMDE_FLOAT64_C( -406.43), SIMDE_FLOAT64_C(  -70.51)),
+      simde_x_vloadq_f64(SIMDE_FLOAT64_C( -775.79), SIMDE_FLOAT64_C(  949.15)),
+      simde_x_vloadq_f64(SIMDE_FLOAT64_C(  369.36), SIMDE_FLOAT64_C( 1019.66)) },
+    { simde_x_vloadq_f64(SIMDE_FLOAT64_C(   83.98), SIMDE_FLOAT64_C(  583.58)),
+      simde_x_vloadq_f64(SIMDE_FLOAT64_C(  -32.22), SIMDE_FLOAT64_C(  -55.64)),
+      simde_x_vloadq_f64(SIMDE_FLOAT64_C(  116.20), SIMDE_FLOAT64_C(  639.22)) },
 
   };
-
-  printf("\n");
-  for (size_t i = 0 ; i < (sizeof(test_vec) / (sizeof(test_vec[0]))) ; i++) {
-    simde_float64x2_t a, b, r;
-
-    a = simde_neon_random_float64x2();
-    b = simde_neon_random_float64x2();
-
-    r = simde_vabdq_f64(a, b);
-
-    printf("    { simde_x_vloadq_f64(SIMDE_FLOAT64_C(%*.2f), SIMDE_FLOAT64_C(%*.2f)),\n",
-           8, a.f64[0], 8, a.f64[1]);
-    printf("      simde_x_vloadq_f64(SIMDE_FLOAT64_C(%*.2f), SIMDE_FLOAT64_C(%*.2f)),\n",
-           8, b.f64[0], 8, b.f64[1]);
-    printf("      simde_x_vloadq_f64(SIMDE_FLOAT64_C(%*.2f), SIMDE_FLOAT64_C(%*.2f)) },\n",
-           8, r.f64[0], 8, r.f64[1]);
-  }
-  return MUNIT_FAIL;
 
   for (size_t i = 0 ; i < (sizeof(test_vec) / sizeof(test_vec[0])); i++) {
     simde_float64x2_t r = simde_vabdq_f64(test_vec[i].a, test_vec[i].b);
@@ -958,7 +1056,6 @@ test_simde_vabdq_f64(const MunitParameter params[], void* data) {
 
   return MUNIT_OK;
 }
-#endif
 
 HEDLEY_DIAGNOSTIC_PUSH
 HEDLEY_DIAGNOSTIC_DISABLE_CAST_QUAL
@@ -967,23 +1064,19 @@ static MunitTest vabd_tests[] = {
   SIMDE_TESTS_NEON_DEFINE_TEST(s8),
   SIMDE_TESTS_NEON_DEFINE_TEST(s16),
   SIMDE_TESTS_NEON_DEFINE_TEST(s32),
-  // SIMDE_TESTS_NEON_DEFINE_TEST(s64),
   SIMDE_TESTS_NEON_DEFINE_TEST(u8),
   SIMDE_TESTS_NEON_DEFINE_TEST(u16),
   SIMDE_TESTS_NEON_DEFINE_TEST(u32),
-  // SIMDE_TESTS_NEON_DEFINE_TEST(u64),
-  // SIMDE_TESTS_NEON_DEFINE_TEST(f32),
-  // SIMDE_TESTS_NEON_DEFINE_TEST(f64),
-  // SIMDE_TESTS_NEON_DEFINE_TEST_FULL(q, s8),
-  // SIMDE_TESTS_NEON_DEFINE_TEST_FULL(q, s16),
-  // SIMDE_TESTS_NEON_DEFINE_TEST_FULL(q, s32),
-  // SIMDE_TESTS_NEON_DEFINE_TEST_FULL(q, s64),
-  // SIMDE_TESTS_NEON_DEFINE_TEST_FULL(q, u8),
-  // SIMDE_TESTS_NEON_DEFINE_TEST_FULL(q, u16),
-  // SIMDE_TESTS_NEON_DEFINE_TEST_FULL(q, u32),
-  // SIMDE_TESTS_NEON_DEFINE_TEST_FULL(q, u64),
-  // SIMDE_TESTS_NEON_DEFINE_TEST_FULL(q, f32),
-  // SIMDE_TESTS_NEON_DEFINE_TEST_FULL(q, f64),
+  SIMDE_TESTS_NEON_DEFINE_TEST(f32),
+  SIMDE_TESTS_NEON_DEFINE_TEST(f64),
+  SIMDE_TESTS_NEON_DEFINE_TEST_FULL(q, s8),
+  SIMDE_TESTS_NEON_DEFINE_TEST_FULL(q, s16),
+  SIMDE_TESTS_NEON_DEFINE_TEST_FULL(q, s32),
+  SIMDE_TESTS_NEON_DEFINE_TEST_FULL(q, u8),
+  SIMDE_TESTS_NEON_DEFINE_TEST_FULL(q, u16),
+  SIMDE_TESTS_NEON_DEFINE_TEST_FULL(q, u32),
+  SIMDE_TESTS_NEON_DEFINE_TEST_FULL(q, f32),
+  SIMDE_TESTS_NEON_DEFINE_TEST_FULL(q, f64),
 
   { NULL, NULL, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL }
 };
