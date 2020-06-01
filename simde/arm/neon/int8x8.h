@@ -51,6 +51,22 @@ HEDLEY_STATIC_ASSERT(8 == sizeof(simde_int8x8_t), "simde_int8x8_t size incorrect
 
 SIMDE_FUNCTION_ATTRIBUTES
 simde_int8x8_t
+simde_vabd_s8(simde_int8x8_t a, simde_int8x8_t b) {
+  simde_int8x8_t r;
+#if defined(SIMDE_NEON_NATIVE)
+  r.n = vabd_s8(a.n, b.n);
+#else
+  SIMDE_VECTORIZE
+  for (size_t i = 0 ; i < (sizeof(r.i8) / sizeof(r.i8[0])) ; i++) {
+    r.i8[i] = abs(a.i8[i] - b.i8[i]);
+  }
+#endif
+  return r;
+}
+
+
+SIMDE_FUNCTION_ATTRIBUTES
+simde_int8x8_t
 simde_vadd_s8(simde_int8x8_t a, simde_int8x8_t b) {
   simde_int8x8_t r;
 #if defined(SIMDE_NEON_NATIVE)

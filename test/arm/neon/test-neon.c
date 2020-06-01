@@ -20,12 +20,13 @@
 
 MunitSuite*
 simde_tests_arm_neon_get_suite(void) {
-  static MunitSuite children[(4 * CHILD_GROUP_LEN) + 1];
+  static MunitSuite children[(5 * CHILD_GROUP_LEN) + 1];
   static MunitSuite suite = { "/neon", NULL, children, 1, MUNIT_SUITE_OPTION_NONE };
   static const MunitSuite empty = { NULL, NULL, NULL, 1, MUNIT_SUITE_OPTION_NONE };
 
   size_t i = 0;
   
+  SET_CHILDREN_FOR_OP(abd);
   SET_CHILDREN_FOR_OP(add);
   SET_CHILDREN_FOR_OP(dup);
   SET_CHILDREN_FOR_OP(mul);
