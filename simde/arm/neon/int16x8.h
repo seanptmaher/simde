@@ -54,6 +54,21 @@ HEDLEY_STATIC_ASSERT(16 == sizeof(simde_int16x8_t), "simde_int16x8_t size incorr
 
 SIMDE_FUNCTION_ATTRIBUTES
 simde_int16x8_t
+simde_vabsq_s16(simde_int16x8_t a) {
+  simde_int16x8_t r;
+#if defined(SIMDE_NEON_NATIVE)
+  r.n = vabsq_s16(a.n);
+#else
+  SIMDE_VECTORIZE
+  for (size_t i = 0 ; i < (sizeof(r.i16) / sizeof(r.i16[0])) ; i++) {
+    r.i16[i] = (uint32_t) (((int32_t) a.i16[i]) > 0) ? ((int32_t) a.i16[i]) : -((int32_t) a.i16[i]);
+  }
+#endif
+  return r;
+}
+
+SIMDE_FUNCTION_ATTRIBUTES
+simde_int16x8_t
 simde_vabdq_s16(simde_int16x8_t a, simde_int16x8_t b) {
   simde_int16x8_t r;
 #if defined(SIMDE_NEON_NATIVE)
