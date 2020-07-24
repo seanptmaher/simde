@@ -163,9 +163,13 @@ set(TEST_SOURCES_C
   arm/neon/qrdmulh_n.c
   arm/neon/qmovn.c
   arm/neon/qmovn_high.c
+  arm/neon/qmovun.c
   arm/neon/qtbl.c
   arm/neon/qtbx.c
+  arm/neon/rbit.c
   arm/neon/reinterpret.c
+  arm/neon/rev16.c
+  arm/neon/rev32.c
   arm/neon/rev64.c
   arm/neon/rhadd.c
   arm/neon/rshl.c
