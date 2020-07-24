@@ -48,6 +48,12 @@ simde__m128
 simde_mm_acos_ps (simde__m128 a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_SSE_NATIVE)
     return _mm_acos_ps(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_SSE_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_acosf4_u10(a);
+    #else
+      return Sleef_acosf4_u35(a);
+    #endif
   #else
     simde__m128_private
       r_,
@@ -71,6 +77,12 @@ simde__m128d
 simde_mm_acos_pd (simde__m128d a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_SSE_NATIVE)
     return _mm_acos_pd(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_SSE_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_acosd2_u10(a);
+    #else
+      return Sleef_acosd2_u35(a);
+    #endif
   #else
     simde__m128d_private
       r_,
@@ -94,6 +106,12 @@ simde__m256
 simde_mm256_acos_ps (simde__m256 a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX_NATIVE)
     return _mm256_acos_ps(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_acosf8_u10(a);
+    #else
+      return Sleef_acosf8_u35(a);
+    #endif
   #else
     simde__m256_private
       r_,
@@ -118,6 +136,12 @@ simde__m256d
 simde_mm256_acos_pd (simde__m256d a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX_NATIVE)
     return _mm256_acos_pd(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_acosd4_u10(a);
+    #else
+      return Sleef_acosd4_u35(a);
+    #endif
   #else
     simde__m256d_private
       r_,
@@ -141,6 +165,12 @@ simde__m512
 simde_mm512_acos_ps (simde__m512 a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX512F_NATIVE)
     return _mm512_acos_ps(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX512F_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_acosf16_u10(a);
+    #else
+      return Sleef_acosf16_u35(a);
+    #endif
   #else
     simde__m512_private
       r_,
@@ -164,6 +194,12 @@ simde__m512d
 simde_mm512_acos_pd (simde__m512d a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX512F_NATIVE)
     return _mm512_acos_pd(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX512F_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_acosd8_u10(a);
+    #else
+      return Sleef_acosd8_u35(a);
+    #endif
   #else
     simde__m512d_private
       r_,
@@ -380,8 +416,14 @@ simde_mm512_mask_acosh_pd(simde__m512d src, simde__mmask8 k, simde__m512d a) {
 SIMDE_FUNCTION_ATTRIBUTES
 simde__m128
 simde_mm_asin_ps (simde__m128 a) {
-   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_SSE_NATIVE)
+  #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_SSE_NATIVE)
     return _mm_asin_ps(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_SSE_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_asinf4_u10(a);
+    #else
+      return Sleef_asinf4_u35(a);
+    #endif
   #else
     simde__m128_private
       r_,
@@ -405,6 +447,12 @@ simde__m128d
 simde_mm_asin_pd (simde__m128d a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_SSE_NATIVE)
     return _mm_asin_pd(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_SSE_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_asind2_u10(a);
+    #else
+      return Sleef_asind2_u35(a);
+    #endif
   #else
     simde__m128d_private
       r_,
@@ -428,6 +476,12 @@ simde__m256
 simde_mm256_asin_ps (simde__m256 a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX_NATIVE)
     return _mm256_asin_ps(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_asinf8_u10(a);
+    #else
+      return Sleef_asinf8_u35(a);
+    #endif
   #else
     simde__m256_private
       r_,
@@ -452,6 +506,12 @@ simde__m256d
 simde_mm256_asin_pd (simde__m256d a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX_NATIVE)
     return _mm256_asin_pd(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_asind4_u10(a);
+    #else
+      return Sleef_asind4_u35(a);
+    #endif
   #else
     simde__m256d_private
       r_,
@@ -475,6 +535,12 @@ simde__m512
 simde_mm512_asin_ps (simde__m512 a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX512F_NATIVE)
     return _mm512_asin_ps(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX512F_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_asinf16_u10(a);
+    #else
+      return Sleef_asinf16_u35(a);
+    #endif
   #else
     simde__m512_private
       r_,
@@ -498,6 +564,12 @@ simde__m512d
 simde_mm512_asin_pd (simde__m512d a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX512F_NATIVE)
     return _mm512_asin_pd(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX512F_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_asind8_u10(a);
+    #else
+      return Sleef_asind8_u35(a);
+    #endif
   #else
     simde__m512d_private
       r_,
@@ -716,6 +788,12 @@ simde__m128
 simde_mm_atan_ps (simde__m128 a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_SSE_NATIVE)
     return _mm_atan_ps(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_SSE_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_atanf4_u10(a);
+    #else
+      return Sleef_atanf4_u35(a);
+    #endif
   #else
     simde__m128_private
       r_,
@@ -739,6 +817,12 @@ simde__m128d
 simde_mm_atan_pd (simde__m128d a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_SSE_NATIVE)
     return _mm_atan_pd(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_SSE_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_atand2_u10(a);
+    #else
+      return Sleef_atand2_u35(a);
+    #endif
   #else
     simde__m128d_private
       r_,
@@ -762,6 +846,12 @@ simde__m256
 simde_mm256_atan_ps (simde__m256 a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX_NATIVE)
     return _mm256_atan_ps(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_atanf8_u10(a);
+    #else
+      return Sleef_atanf8_u35(a);
+    #endif
   #else
     simde__m256_private
       r_,
@@ -786,6 +876,12 @@ simde__m256d
 simde_mm256_atan_pd (simde__m256d a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX_NATIVE)
     return _mm256_atan_pd(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_atand4_u10(a);
+    #else
+      return Sleef_atand4_u35(a);
+    #endif
   #else
     simde__m256d_private
       r_,
@@ -809,6 +905,12 @@ simde__m512
 simde_mm512_atan_ps (simde__m512 a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX512F_NATIVE)
     return _mm512_atan_ps(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX512F_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_atanf16_u10(a);
+    #else
+      return Sleef_atanf16_u35(a);
+    #endif
   #else
     simde__m512_private
       r_,
@@ -832,6 +934,12 @@ simde__m512d
 simde_mm512_atan_pd (simde__m512d a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX512F_NATIVE)
     return _mm512_atan_pd(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX512F_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_atand8_u10(a);
+    #else
+      return Sleef_atand8_u35(a);
+    #endif
   #else
     simde__m512d_private
       r_,
@@ -1439,23 +1547,21 @@ simde__m128
 simde_mm_cos_ps (simde__m128 a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_SSE_NATIVE)
     return _mm_cos_ps(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_SSE_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_cosf4_u10(a);
+    #else
+      return Sleef_cosf4_u35(a);
+    #endif
   #else
     simde__m128_private
       r_,
       a_ = simde__m128_to_private(a);
 
-    #if defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_SSE2_NATIVE)
-      #if SIMDE_ACCURACY_PREFERENCE > 1
-        r_.f32 = Sleef_cosf4_u10(a_.f32);
-      #else
-        r_.f32 = Sleef_cosf4_u35(a_.f32);
-      #endif
-    #else
       SIMDE_VECTORIZE
       for (size_t i = 0 ; i < (sizeof(r_.f32) / sizeof(r_.f32[0])) ; i++) {
         r_.f32[i] = simde_math_cosf(a_.f32[i]);
       }
-    #endif
 
     return simde__m128_from_private(r_);
   #endif
@@ -1470,6 +1576,12 @@ simde__m128d
 simde_mm_cos_pd (simde__m128d a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_SSE_NATIVE)
     return _mm_cos_pd(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_SSE_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_cosd2_u10(a);
+    #else
+      return Sleef_cosd2_u35(a);
+    #endif
   #else
     simde__m128d_private
       r_,
@@ -1493,6 +1605,12 @@ simde__m256
 simde_mm256_cos_ps (simde__m256 a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX_NATIVE)
     return _mm256_cos_ps(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_cosf8_u10(a);
+    #else
+      return Sleef_cosf8_u35(a);
+    #endif
   #else
     simde__m256_private
       r_,
@@ -1517,6 +1635,12 @@ simde__m256d
 simde_mm256_cos_pd (simde__m256d a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX_NATIVE)
     return _mm256_cos_pd(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_cosd4_u10(a);
+    #else
+      return Sleef_cosd4_u35(a);
+    #endif
   #else
     simde__m256d_private
       r_,
@@ -1540,6 +1664,12 @@ simde__m512
 simde_mm512_cos_ps (simde__m512 a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX512F_NATIVE)
     return _mm512_cos_ps(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX512F_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_cosf16_u10(a);
+    #else
+      return Sleef_cosf16_u35(a);
+    #endif
   #else
     simde__m512_private
       r_,
@@ -1563,6 +1693,12 @@ simde__m512d
 simde_mm512_cos_pd (simde__m512d a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX512F_NATIVE)
     return _mm512_cos_pd(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX512F_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_cosd8_u10(a);
+    #else
+      return Sleef_cosd8_u35(a);
+    #endif
   #else
     simde__m512d_private
       r_,
@@ -3003,80 +3139,6 @@ simde_mm512_mask_erfc_pd(simde__m512d src, simde__mmask8 k, simde__m512d a) {
 #if defined(SIMDE_X86_SVML_ENABLE_NATIVE_ALIASES)
   #undef _mm512_mask_erfc_pd
   #define _mm512_mask_erfc_pd(src, k, a) simde_mm512_mask_erfc_pd(src, k, a)
-#endif
-
-SIMDE_FUNCTION_ATTRIBUTES
-simde__m512
-simde_mm512_erfcinv_ps (simde__m512 a) {
-  #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX512F_NATIVE)
-    return _mm512_erfcinv_ps(a);
-  #else
-    simde__m512_private
-      r_,
-      a_ = simde__m512_to_private(a);
-
-    SIMDE_VECTORIZE
-    for (size_t i = 0 ; i < (sizeof(r_.f32) / sizeof(r_.f32[0])) ; i++) {
-      r_.f32[i] = simde_math_erfcinvf(a_.f32[i]);
-    }
-
-    return simde__m512_from_private(r_);
-  #endif
-}
-#if defined(SIMDE_X86_SVML_ENABLE_NATIVE_ALIASES)
-  #undef _mm512_erfcinv_ps
-  #define _mm512_erfcinv_ps(a) simde_mm512_erfcinv_ps(a)
-#endif
-
-SIMDE_FUNCTION_ATTRIBUTES
-simde__m512d
-simde_mm512_erfcinv_pd (simde__m512d a) {
-  #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX512F_NATIVE)
-    return _mm512_erfcinv_pd(a);
-  #else
-    simde__m512d_private
-      r_,
-      a_ = simde__m512d_to_private(a);
-
-    SIMDE_VECTORIZE
-    for (size_t i = 0 ; i < (sizeof(r_.f64) / sizeof(r_.f64[0])) ; i++) {
-      r_.f64[i] = simde_math_erfcinv(a_.f64[i]);
-    }
-
-    return simde__m512d_from_private(r_);
-  #endif
-}
-#if defined(SIMDE_X86_SVML_ENABLE_NATIVE_ALIASES)
-  #undef _mm512_erfcinv_pd
-  #define _mm512_erfcinv_pd(a) simde_mm512_erfcinv_pd(a)
-#endif
-
-SIMDE_FUNCTION_ATTRIBUTES
-simde__m512
-simde_mm512_mask_erfcinv_ps(simde__m512 src, simde__mmask16 k, simde__m512 a) {
-  #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX512F_NATIVE)
-    return _mm512_mask_erfcinv_ps(src, k, a);
-  #else
-    return simde_mm512_mask_mov_ps(src, k, simde_mm512_erfcinv_ps(a));
-  #endif
-}
-#if defined(SIMDE_X86_SVML_ENABLE_NATIVE_ALIASES)
-  #undef _mm512_mask_erfcinv_ps
-  #define _mm512_mask_erfcinv_ps(src, k, a) simde_mm512_mask_erfcinv_ps(src, k, a)
-#endif
-
-SIMDE_FUNCTION_ATTRIBUTES
-simde__m512d
-simde_mm512_mask_erfcinv_pd(simde__m512d src, simde__mmask8 k, simde__m512d a) {
-  #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX512F_NATIVE)
-    return _mm512_mask_erfcinv_pd(src, k, a);
-  #else
-    return simde_mm512_mask_mov_pd(src, k, simde_mm512_erfcinv_pd(a));
-  #endif
-}
-#if defined(SIMDE_X86_SVML_ENABLE_NATIVE_ALIASES)
-  #undef _mm512_mask_erfcinv_pd
-  #define _mm512_mask_erfcinv_pd(src, k, a) simde_mm512_mask_erfcinv_pd(src, k, a)
 #endif
 
 SIMDE_FUNCTION_ATTRIBUTES
@@ -6253,6 +6315,320 @@ simde_mm256_erfcinv_pd (simde__m256d a) {
 #endif
 
 SIMDE_FUNCTION_ATTRIBUTES
+simde__m512
+simde_mm512_erfcinv_ps (simde__m512 a) {
+  #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX512F_NATIVE)
+    return _mm512_erfcinv_ps(a);
+  #elif SIMDE_NATURAL_VECTOR_SIZE_LE(256)
+    simde__m512_private
+      r_,
+      a_ = simde__m512_to_private(a);
+
+    for (size_t i = 0 ; i < (sizeof(r_.m256) / sizeof(r_.m256[0])) ; i++) {
+      r_.m256[i] = simde_mm256_erfcinv_ps(a_.m256[i]);
+    }
+    return simde__m512_from_private(r_);
+  #else
+    simde__m512 retval = simde_mm512_setzero_ps();
+    simde__mmask16 matched;
+
+    { /* if (a < 2.0f && a > 0.0625f) */
+      matched =  simde_mm512_cmp_ps_mask(a, simde_mm512_set1_ps(SIMDE_FLOAT32_C(2.0)), SIMDE_CMP_LT_OQ);
+      matched &= simde_mm512_cmp_ps_mask(a, simde_mm512_set1_ps(SIMDE_FLOAT32_C(0.0625)), SIMDE_CMP_GT_OQ);
+
+      if (matched != 0) {
+        retval = simde_mm512_erfinv_ps(simde_mm512_sub_ps(simde_mm512_set1_ps(SIMDE_FLOAT32_C(1.0)), a));
+      }
+
+      if (matched == 1) {
+        return retval;
+      }
+    }
+
+    { /* else if (a < 0.0625f && a > 0.0f) */
+      simde__mmask16 mask = simde_mm512_cmp_ps_mask(a, simde_mm512_set1_ps(SIMDE_FLOAT32_C(0.0625)), SIMDE_CMP_LT_OQ);
+      mask &= simde_mm512_cmp_ps_mask(a, simde_mm512_set1_ps(SIMDE_FLOAT32_C(0.0)), SIMDE_CMP_GT_OQ);
+      mask = ~matched & mask;
+
+      if (mask != 0) {
+        matched = matched | mask;
+
+        /* t =  1/(sqrt(-log(a))) */
+        simde__m512 t = simde_x_mm512_negate_ps(simde_mm512_log_ps(a));
+        t = simde_mm512_sqrt_ps(t);
+        t = simde_mm512_div_ps(simde_mm512_set1_ps(SIMDE_FLOAT32_C(1.0)), t);
+
+        const simde__m512 p[] = {
+          simde_mm512_set1_ps(SIMDE_FLOAT32_C( 0.1550470003116)),
+          simde_mm512_set1_ps(SIMDE_FLOAT32_C( 1.382719649631)),
+          simde_mm512_set1_ps(SIMDE_FLOAT32_C( 0.690969348887)),
+          simde_mm512_set1_ps(SIMDE_FLOAT32_C(-1.128081391617)),
+          simde_mm512_set1_ps(SIMDE_FLOAT32_C( 0.680544246825)),
+          simde_mm512_set1_ps(SIMDE_FLOAT32_C(-0.16444156791))
+        };
+
+        const simde__m512 q[] = {
+          simde_mm512_set1_ps(SIMDE_FLOAT32_C( 0.155024849822)),
+          simde_mm512_set1_ps(SIMDE_FLOAT32_C( 1.385228141995)),
+          simde_mm512_set1_ps(SIMDE_FLOAT32_C( 1.000000000000))
+        };
+
+        /* float numerator = p[0] / t + p[1] + t * (p[2] + t * (p[3] + t * (p[4] + t * p[5])))) */
+        simde__m512 numerator = simde_mm512_fmadd_ps(p[5], t, p[4]);
+        numerator = simde_mm512_fmadd_ps(numerator, t, p[3]);
+        numerator = simde_mm512_fmadd_ps(numerator, t, p[2]);
+        numerator = simde_mm512_fmadd_ps(numerator, t, p[1]);
+        numerator = simde_mm512_add_ps(numerator, simde_mm512_div_ps(p[0], t));
+
+        /* float denominator = (q[0] + t * (q[1] + t * (q[2]))) */
+        simde__m512 denominator = simde_mm512_fmadd_ps(q[2], t, q[1]);
+        denominator = simde_mm512_fmadd_ps(denominator, t, q[0]);
+
+        simde__m512 res = simde_mm512_div_ps(numerator, denominator);
+
+        retval = simde_mm512_or_ps(retval, simde_mm512_maskz_mov_ps(mask, res));
+      }
+    }
+
+    { /* else if (a < 0.0f) */
+      simde__mmask16 mask = simde_mm512_cmp_ps_mask(a, simde_mm512_set1_ps(SIMDE_FLOAT32_C(0.0)), SIMDE_CMP_LT_OQ);
+      mask = ~matched & mask;
+
+      if (mask != 0) {
+        matched = matched | mask;
+
+        /* t =  1/(sqrt(-log(a))) */
+        simde__m512 t = simde_x_mm512_negate_ps(simde_mm512_log_ps(a));
+        t = simde_mm512_sqrt_ps(t);
+        t = simde_mm512_div_ps(simde_mm512_set1_ps(SIMDE_FLOAT32_C(1.0)), t);
+
+        const simde__m512 p[] = {
+          simde_mm512_set1_ps(SIMDE_FLOAT32_C( 0.00980456202915)),
+          simde_mm512_set1_ps(SIMDE_FLOAT32_C( 0.36366788917100)),
+          simde_mm512_set1_ps(SIMDE_FLOAT32_C( 0.97302949837000)),
+          simde_mm512_set1_ps(SIMDE_FLOAT32_C( -0.5374947401000))
+        };
+
+        const simde__m512 q[] = {
+          simde_mm512_set1_ps(SIMDE_FLOAT32_C( 0.00980451277802)),
+          simde_mm512_set1_ps(SIMDE_FLOAT32_C( 0.36369997154400)),
+          simde_mm512_set1_ps(SIMDE_FLOAT32_C( 1.00000000000000))
+        };
+
+        /* float numerator = (p[0] / t + p[1] + t * (p[2] + t * p[3])) */
+        simde__m512 numerator = simde_mm512_fmadd_ps(p[3], t, p[2]);
+        numerator = simde_mm512_fmadd_ps(numerator, t, p[1]);
+        numerator = simde_mm512_add_ps(numerator, simde_mm512_div_ps(p[0], t));
+
+        /* float denominator = (q[0] + t * (q[1] + t * (q[2]))) */
+        simde__m512 denominator = simde_mm512_fmadd_ps(q[2], t, q[1]);
+        denominator = simde_mm512_fmadd_ps(denominator, t, q[0]);
+
+        simde__m512 res = simde_mm512_div_ps(numerator, denominator);
+
+        retval = simde_mm512_or_ps(retval, simde_mm512_maskz_mov_ps(mask, res));
+
+        if (matched == 1) {
+          return retval;
+        }
+      }
+    }
+
+    { /* else if (a == 0.0f) */
+      simde__mmask16 mask = simde_mm512_cmp_ps_mask(a, simde_mm512_set1_ps(SIMDE_FLOAT32_C(0.0)), SIMDE_CMP_EQ_OQ);
+      mask = ~matched & mask;
+      matched = matched | mask;
+
+      simde__m512 res = simde_mm512_set1_ps(SIMDE_MATH_INFINITYF);
+
+      retval = simde_mm512_or_ps(retval, simde_mm512_maskz_mov_ps(mask, res));
+    }
+
+    { /* else */
+      /* (a >= 2.0f) */
+      retval = simde_mm512_or_ps(retval, simde_mm512_maskz_mov_ps(~matched, simde_mm512_set1_ps(-SIMDE_MATH_INFINITYF)));
+    }
+
+    return retval;
+  #endif
+}
+#if defined(SIMDE_X86_SVML_ENABLE_NATIVE_ALIASES)
+  #undef _mm512_erfcinv_ps
+  #define _mm512_erfcinv_ps(a) simde_mm512_erfcinv_ps(a)
+#endif
+
+SIMDE_FUNCTION_ATTRIBUTES
+simde__m512d
+simde_mm512_erfcinv_pd (simde__m512d a) {
+  #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX512F_NATIVE)
+    return _mm512_erfcinv_pd(a);
+  #elif SIMDE_NATURAL_VECTOR_SIZE_LE(256)
+    simde__m512d_private
+      r_,
+      a_ = simde__m512d_to_private(a);
+
+    for (size_t i = 0 ; i < (sizeof(r_.m256d) / sizeof(r_.m256d[0])) ; i++) {
+      r_.m256d[i] = simde_mm256_erfcinv_pd(a_.m256d[i]);
+    }
+    return simde__m512d_from_private(r_);
+  #else
+    simde__m512d retval = simde_mm512_setzero_pd();
+    simde__mmask8 matched;
+
+    { /* if (a < 2.0f && a > 0.0625f) */
+      matched =  simde_mm512_cmp_pd_mask(a, simde_mm512_set1_pd(SIMDE_FLOAT64_C(2.0)), SIMDE_CMP_LT_OQ);
+      matched &= simde_mm512_cmp_pd_mask(a, simde_mm512_set1_pd(SIMDE_FLOAT64_C(0.0625)), SIMDE_CMP_GT_OQ);
+
+      if (matched != 0) {
+        retval = simde_mm512_erfinv_pd(simde_mm512_sub_pd(simde_mm512_set1_pd(SIMDE_FLOAT64_C(1.0)), a));
+      }
+
+      if (matched == 1) {
+        return retval;
+      }
+    }
+
+    { /* else if (a < 0.0625f && a > 0.0f) */
+      simde__mmask8 mask = simde_mm512_cmp_pd_mask(a, simde_mm512_set1_pd(SIMDE_FLOAT64_C(0.0625)), SIMDE_CMP_LT_OQ);
+      mask &= simde_mm512_cmp_pd_mask(a, simde_mm512_set1_pd(SIMDE_FLOAT64_C(0.0)), SIMDE_CMP_GT_OQ);
+      mask = ~matched & mask;
+
+      if (mask != 0) {
+        matched = matched | mask;
+
+        /* t =  1/(sqrt(-log(a))) */
+        simde__m512d t = simde_x_mm512_negate_pd(simde_mm512_log_pd(a));
+        t = simde_mm512_sqrt_pd(t);
+        t = simde_mm512_div_pd(simde_mm512_set1_pd(SIMDE_FLOAT64_C(1.0)), t);
+
+        const simde__m512d p[] = {
+          simde_mm512_set1_pd(SIMDE_FLOAT64_C( 0.1550470003116)),
+          simde_mm512_set1_pd(SIMDE_FLOAT64_C( 1.382719649631)),
+          simde_mm512_set1_pd(SIMDE_FLOAT64_C( 0.690969348887)),
+          simde_mm512_set1_pd(SIMDE_FLOAT64_C(-1.128081391617)),
+          simde_mm512_set1_pd(SIMDE_FLOAT64_C( 0.680544246825)),
+          simde_mm512_set1_pd(SIMDE_FLOAT64_C(-0.16444156791))
+        };
+
+        const simde__m512d q[] = {
+          simde_mm512_set1_pd(SIMDE_FLOAT64_C( 0.155024849822)),
+          simde_mm512_set1_pd(SIMDE_FLOAT64_C( 1.385228141995)),
+          simde_mm512_set1_pd(SIMDE_FLOAT64_C( 1.000000000000))
+        };
+
+        /* float numerator = p[0] / t + p[1] + t * (p[2] + t * (p[3] + t * (p[4] + t * p[5])))) */
+        simde__m512d numerator = simde_mm512_fmadd_pd(p[5], t, p[4]);
+        numerator = simde_mm512_fmadd_pd(numerator, t, p[3]);
+        numerator = simde_mm512_fmadd_pd(numerator, t, p[2]);
+        numerator = simde_mm512_fmadd_pd(numerator, t, p[1]);
+        numerator = simde_mm512_add_pd(numerator, simde_mm512_div_pd(p[0], t));
+
+        /* float denominator = (q[0] + t * (q[1] + t * (q[2]))) */
+        simde__m512d denominator = simde_mm512_fmadd_pd(q[2], t, q[1]);
+        denominator = simde_mm512_fmadd_pd(denominator, t, q[0]);
+
+        simde__m512d res = simde_mm512_div_pd(numerator, denominator);
+
+        retval = simde_mm512_or_pd(retval, simde_mm512_maskz_mov_pd(mask, res));
+      }
+    }
+
+    { /* else if (a < 0.0f) */
+      simde__mmask8 mask = simde_mm512_cmp_pd_mask(a, simde_mm512_set1_pd(SIMDE_FLOAT64_C(0.0)), SIMDE_CMP_LT_OQ);
+      mask = ~matched & mask;
+
+      if (mask != 0) {
+        matched = matched | mask;
+
+        /* t =  1/(sqrt(-log(a))) */
+        simde__m512d t = simde_x_mm512_negate_pd(simde_mm512_log_pd(a));
+        t = simde_mm512_sqrt_pd(t);
+        t = simde_mm512_div_pd(simde_mm512_set1_pd(SIMDE_FLOAT64_C(1.0)), t);
+
+        const simde__m512d p[] = {
+          simde_mm512_set1_pd(SIMDE_FLOAT64_C( 0.00980456202915)),
+          simde_mm512_set1_pd(SIMDE_FLOAT64_C( 0.36366788917100)),
+          simde_mm512_set1_pd(SIMDE_FLOAT64_C( 0.97302949837000)),
+          simde_mm512_set1_pd(SIMDE_FLOAT64_C( -0.5374947401000))
+        };
+
+        const simde__m512d q[] = {
+          simde_mm512_set1_pd(SIMDE_FLOAT64_C( 0.00980451277802)),
+          simde_mm512_set1_pd(SIMDE_FLOAT64_C( 0.36369997154400)),
+          simde_mm512_set1_pd(SIMDE_FLOAT64_C( 1.00000000000000))
+        };
+
+        /* float numerator = (p[0] / t + p[1] + t * (p[2] + t * p[3])) */
+        simde__m512d numerator = simde_mm512_fmadd_pd(p[3], t, p[2]);
+        numerator = simde_mm512_fmadd_pd(numerator, t, p[1]);
+        numerator = simde_mm512_add_pd(numerator, simde_mm512_div_pd(p[0], t));
+
+        /* float denominator = (q[0] + t * (q[1] + t * (q[2]))) */
+        simde__m512d denominator = simde_mm512_fmadd_pd(q[2], t, q[1]);
+        denominator = simde_mm512_fmadd_pd(denominator, t, q[0]);
+
+        simde__m512d res = simde_mm512_div_pd(numerator, denominator);
+
+        retval = simde_mm512_or_pd(retval, simde_mm512_maskz_mov_pd(mask, res));
+
+        if (matched == 1) {
+          return retval;
+        }
+      }
+    }
+
+    { /* else if (a == 0.0f) */
+      simde__mmask8 mask = simde_mm512_cmp_pd_mask(a, simde_mm512_set1_pd(SIMDE_FLOAT64_C(0.0)), SIMDE_CMP_EQ_OQ);
+      mask = ~matched & mask;
+      matched = matched | mask;
+
+      simde__m512d res = simde_mm512_set1_pd(SIMDE_MATH_INFINITY);
+
+      retval = simde_mm512_or_pd(retval, simde_mm512_maskz_mov_pd(mask, res));
+    }
+
+    { /* else */
+      /* (a >= 2.0f) */
+      retval = simde_mm512_or_pd(retval, simde_mm512_maskz_mov_pd(~matched, simde_mm512_set1_pd(-SIMDE_MATH_INFINITY)));
+    }
+
+    return retval;
+  #endif
+}
+#if defined(SIMDE_X86_SVML_ENABLE_NATIVE_ALIASES)
+  #undef _mm512_erfcinv_pd
+  #define _mm512_erfcinv_pd(a) simde_mm512_erfcinv_pd(a)
+#endif
+
+SIMDE_FUNCTION_ATTRIBUTES
+simde__m512
+simde_mm512_mask_erfcinv_ps(simde__m512 src, simde__mmask16 k, simde__m512 a) {
+  #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX512F_NATIVE)
+    return _mm512_mask_erfcinv_ps(src, k, a);
+  #else
+    return simde_mm512_mask_mov_ps(src, k, simde_mm512_erfcinv_ps(a));
+  #endif
+}
+#if defined(SIMDE_X86_SVML_ENABLE_NATIVE_ALIASES)
+  #undef _mm512_mask_erfcinv_ps
+  #define _mm512_mask_erfcinv_ps(src, k, a) simde_mm512_mask_erfcinv_ps(src, k, a)
+#endif
+
+SIMDE_FUNCTION_ATTRIBUTES
+simde__m512d
+simde_mm512_mask_erfcinv_pd(simde__m512d src, simde__mmask8 k, simde__m512d a) {
+  #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX512F_NATIVE)
+    return _mm512_mask_erfcinv_pd(src, k, a);
+  #else
+    return simde_mm512_mask_mov_pd(src, k, simde_mm512_erfcinv_pd(a));
+  #endif
+}
+#if defined(SIMDE_X86_SVML_ENABLE_NATIVE_ALIASES)
+  #undef _mm512_mask_erfcinv_pd
+  #define _mm512_mask_erfcinv_pd(src, k, a) simde_mm512_mask_erfcinv_pd(src, k, a)
+#endif
+
+SIMDE_FUNCTION_ATTRIBUTES
 simde__m128
 simde_mm_logb_ps (simde__m128 a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_SSE_NATIVE)
@@ -8121,15 +8497,21 @@ simde__m128
 simde_mm_sin_ps (simde__m128 a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_SSE_NATIVE)
     return _mm_sin_ps(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_SSE_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_sinf4_u10(a);
+    #else
+      return Sleef_sinf4_u35(a);
+    #endif
   #else
     simde__m128_private
       r_,
       a_ = simde__m128_to_private(a);
 
-    SIMDE_VECTORIZE
-    for (size_t i = 0 ; i < (sizeof(r_.f32) / sizeof(r_.f32[0])) ; i++) {
-      r_.f32[i] = simde_math_sinf(a_.f32[i]);
-    }
+      SIMDE_VECTORIZE
+      for (size_t i = 0 ; i < (sizeof(r_.f32) / sizeof(r_.f32[0])) ; i++) {
+        r_.f32[i] = simde_math_sinf(a_.f32[i]);
+      }
 
     return simde__m128_from_private(r_);
   #endif
@@ -8144,6 +8526,12 @@ simde__m128d
 simde_mm_sin_pd (simde__m128d a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_SSE_NATIVE)
     return _mm_sin_pd(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_SSE_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_sind2_u10(a);
+    #else
+      return Sleef_sind2_u35(a);
+    #endif
   #else
     simde__m128d_private
       r_,
@@ -8167,6 +8555,12 @@ simde__m256
 simde_mm256_sin_ps (simde__m256 a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX_NATIVE)
     return _mm256_sin_ps(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_sinf8_u10(a);
+    #else
+      return Sleef_sinf8_u35(a);
+    #endif
   #else
     simde__m256_private
       r_,
@@ -8185,11 +8579,18 @@ simde_mm256_sin_ps (simde__m256 a) {
   #define _mm256_sin_ps(a) simde_mm256_sin_ps(a)
 #endif
 
+
 SIMDE_FUNCTION_ATTRIBUTES
 simde__m256d
 simde_mm256_sin_pd (simde__m256d a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX_NATIVE)
     return _mm256_sin_pd(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_sind4_u10(a);
+    #else
+      return Sleef_sind4_u35(a);
+    #endif
   #else
     simde__m256d_private
       r_,
@@ -8213,6 +8614,12 @@ simde__m512
 simde_mm512_sin_ps (simde__m512 a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX512F_NATIVE)
     return _mm512_sin_ps(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX512F_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_sinf16_u10(a);
+    #else
+      return Sleef_sinf16_u35(a);
+    #endif
   #else
     simde__m512_private
       r_,
@@ -8236,6 +8643,12 @@ simde__m512d
 simde_mm512_sin_pd (simde__m512d a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX512F_NATIVE)
     return _mm512_sin_pd(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX512F_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_sind8_u10(a);
+    #else
+      return Sleef_sind8_u35(a);
+    #endif
   #else
     simde__m512d_private
       r_,
@@ -9242,15 +9655,21 @@ simde__m128
 simde_mm_tan_ps (simde__m128 a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_SSE_NATIVE)
     return _mm_tan_ps(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_SSE_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_tanf4_u10(a);
+    #else
+      return Sleef_tanf4_u35(a);
+    #endif
   #else
     simde__m128_private
       r_,
       a_ = simde__m128_to_private(a);
 
-    SIMDE_VECTORIZE
-    for (size_t i = 0 ; i < (sizeof(r_.f32) / sizeof(r_.f32[0])) ; i++) {
-      r_.f32[i] = simde_math_tanf(a_.f32[i]);
-    }
+      SIMDE_VECTORIZE
+      for (size_t i = 0 ; i < (sizeof(r_.f32) / sizeof(r_.f32[0])) ; i++) {
+        r_.f32[i] = simde_math_tanf(a_.f32[i]);
+      }
 
     return simde__m128_from_private(r_);
   #endif
@@ -9265,6 +9684,12 @@ simde__m128d
 simde_mm_tan_pd (simde__m128d a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_SSE_NATIVE)
     return _mm_tan_pd(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_SSE_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_tand2_u10(a);
+    #else
+      return Sleef_tand2_u35(a);
+    #endif
   #else
     simde__m128d_private
       r_,
@@ -9288,6 +9713,12 @@ simde__m256
 simde_mm256_tan_ps (simde__m256 a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX_NATIVE)
     return _mm256_tan_ps(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_tanf8_u10(a);
+    #else
+      return Sleef_tanf8_u35(a);
+    #endif
   #else
     simde__m256_private
       r_,
@@ -9306,11 +9737,18 @@ simde_mm256_tan_ps (simde__m256 a) {
   #define _mm256_tan_ps(a) simde_mm256_tan_ps(a)
 #endif
 
+
 SIMDE_FUNCTION_ATTRIBUTES
 simde__m256d
 simde_mm256_tan_pd (simde__m256d a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX_NATIVE)
     return _mm256_tan_pd(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_tand4_u10(a);
+    #else
+      return Sleef_tand4_u35(a);
+    #endif
   #else
     simde__m256d_private
       r_,
@@ -9334,6 +9772,12 @@ simde__m512
 simde_mm512_tan_ps (simde__m512 a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX512F_NATIVE)
     return _mm512_tan_ps(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX512F_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_tanf16_u10(a);
+    #else
+      return Sleef_tanf16_u35(a);
+    #endif
   #else
     simde__m512_private
       r_,
@@ -9357,6 +9801,12 @@ simde__m512d
 simde_mm512_tan_pd (simde__m512d a) {
   #if defined(SIMDE_X86_SVML_NATIVE) && defined(SIMDE_X86_AVX512F_NATIVE)
     return _mm512_tan_pd(a);
+  #elif defined(SIMDE_MATH_SLEEF_ENABLE) && defined(SIMDE_X86_AVX512F_NATIVE)
+    #if SIMDE_ACCURACY_PREFERENCE > 1
+      return Sleef_tand8_u10(a);
+    #else
+      return Sleef_tand8_u35(a);
+    #endif
   #else
     simde__m512d_private
       r_,
