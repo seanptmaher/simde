@@ -88,119 +88,118 @@ endif()
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OPENMP_SIMD_FLAGS}")
 
 set(TEST_SOURCES_C
-  x86/mmx.c
-  x86/sse.c
-  x86/sse2.c
-  x86/sse3.c
-  x86/ssse3.c
-  x86/sse4.1.c
-  x86/sse4.2.c
-  x86/avx.c
-  x86/avx2.c
-  x86/avx512f.c
-  x86/avx512bw.c
-  x86/avx512vl.c
-  x86/avx512dq.c
-  x86/avx512cd.c
-  x86/gfni.c
-  x86/fma.c
-  x86/svml.c
+  # x86/mmx.c
+  # x86/sse.c
+  # x86/sse2.c
+  # x86/sse3.c
+  # x86/ssse3.c
+  # x86/sse4.1.c
+  # x86/sse4.2.c
+  # x86/avx.c
+  # x86/avx2.c
+  # x86/avx512f.c
+  # x86/avx512bw.c
+  # x86/avx512vl.c
+  # x86/avx512dq.c
+  # x86/avx512cd.c
+  # x86/gfni.c
+  # x86/fma.c
+  # x86/svml.c
 
-  arm/neon/abs.c
-  arm/neon/add.c
-  arm/neon/addl.c
-  arm/neon/addl_high.c
-  arm/neon/addw.c
-  arm/neon/and.c
-  arm/neon/bsl.c
-  arm/neon/cagt.c
-  arm/neon/ceq.c
-  arm/neon/ceqz.c
-  arm/neon/cge.c
-  arm/neon/cgez.c
-  arm/neon/cgt.c
-  arm/neon/cgtz.c
-  arm/neon/cle.c
-  arm/neon/clez.c
-  arm/neon/clt.c
-  arm/neon/cltz.c
-  arm/neon/cvt.c
-  arm/neon/combine.c
-  arm/neon/dot.c
-  arm/neon/dot_lane.c
-  arm/neon/dup_n.c
-  arm/neon/eor.c
-  arm/neon/ext.c
-  arm/neon/get_high.c
-  arm/neon/get_lane.c
-  arm/neon/get_low.c
-  arm/neon/max.c
-  arm/neon/min.c
-  arm/neon/mla.c
-  arm/neon/mla_n.c
-  arm/neon/mlal.c
-  arm/neon/mlal_high.c
-  arm/neon/movl.c
-  arm/neon/movl_high.c
-  arm/neon/movn.c
-  arm/neon/mul.c
-  arm/neon/mul_n.c
-  arm/neon/mull.c
-  arm/neon/mull_n.c
-  arm/neon/mvn.c
-  arm/neon/neg.c
-  arm/neon/orr.c
-  arm/neon/padal.c
-  arm/neon/padd.c
-  arm/neon/paddl.c
-  arm/neon/pmax.c
-  arm/neon/pmin.c
-  arm/neon/qadd.c
-  arm/neon/qdmulh.c
-  arm/neon/qdmull.c
-  arm/neon/qshl.c
-  arm/neon/qrdmulh.c
-  arm/neon/qrdmulh_n.c
-  arm/neon/qmovn.c
-  arm/neon/qmovn_high.c
-  arm/neon/qmovun.c
-  arm/neon/qtbl.c
-  arm/neon/qtbx.c
-  arm/neon/rbit.c
-  arm/neon/reinterpret.c
-  arm/neon/rev16.c
-  arm/neon/rev32.c
-  arm/neon/rev64.c
-  arm/neon/rhadd.c
-  arm/neon/rshl.c
-  arm/neon/rshr_n.c
-  arm/neon/rsra_n.c
-  arm/neon/set_lane.c
-  arm/neon/st1_lane.c
+  # arm/neon/abs.c
+  # arm/neon/add.c
+  # arm/neon/addl.c
+  # arm/neon/addl_high.c
+  # arm/neon/addw.c
+  # arm/neon/and.c
+  # arm/neon/bsl.c
+  # arm/neon/cagt.c
+  # arm/neon/ceq.c
+  # arm/neon/ceqz.c
+  # arm/neon/cge.c
+  # arm/neon/cgez.c
+  # arm/neon/cgt.c
+  # arm/neon/cgtz.c
+  # arm/neon/cle.c
+  # arm/neon/clez.c
+  # arm/neon/clt.c
+  # arm/neon/cltz.c
+  # arm/neon/combine.c
+  # arm/neon/dot.c
+  # arm/neon/dot_lane.c
+  # arm/neon/dup_n.c
+  # arm/neon/eor.c
+  # arm/neon/ext.c
+  # arm/neon/get_high.c
+  # arm/neon/get_lane.c
+  # arm/neon/get_low.c
+  # arm/neon/ld3.c
+  # arm/neon/ld4.c
+  # arm/neon/max.c
+  # arm/neon/min.c
+  # arm/neon/mla.c
+  # arm/neon/mla_n.c
+  # arm/neon/mlal.c
+  # arm/neon/mlal_high.c
+  # arm/neon/movl.c
+  # arm/neon/movl_high.c
+  # arm/neon/movn.c
+  # arm/neon/mul.c
+  # arm/neon/mul_n.c
+  # arm/neon/mull.c
+  # arm/neon/mull_n.c
+  # arm/neon/mvn.c
+  # arm/neon/neg.c
+  # arm/neon/orr.c
+  # arm/neon/padal.c
+  # arm/neon/padd.c
+  # arm/neon/paddl.c
+  # arm/neon/pmax.c
+  # arm/neon/pmin.c
+  # arm/neon/qadd.c
+  # arm/neon/qdmulh.c
+  # arm/neon/qdmull.c
+  # arm/neon/qrdmulh.c
+  # arm/neon/qrdmulh_n.c
+  # arm/neon/qmovn.c
+  # arm/neon/qmovn_high.c
+  # arm/neon/qmovun.c
+  # arm/neon/qtbl.c
+  # arm/neon/qtbx.c
+  # arm/neon/rbit.c
+  # arm/neon/reinterpret.c
+  # arm/neon/rev16.c
+  # arm/neon/rev32.c
+  # arm/neon/rev64.c
+  # arm/neon/rhadd.c
+  # arm/neon/rshl.c
+  # arm/neon/rshr_n.c
+  # arm/neon/rsra_n.c
+  # arm/neon/st1_lane.c
   arm/neon/st3.c
   arm/neon/st4.c
-  arm/neon/shl.c
-  arm/neon/shl_n.c
-  arm/neon/shr_n.c
-  arm/neon/sra_n.c
-  arm/neon/sub.c
-  arm/neon/tbl.c
-  arm/neon/tbx.c
-  arm/neon/trn.c
-  arm/neon/trn1.c
-  arm/neon/trn2.c
-  arm/neon/tst.c
-  arm/neon/uzp.c
-  arm/neon/uzp1.c
-  arm/neon/uzp2.c
-  arm/neon/zip.c
-  arm/neon/zip1.c
-  arm/neon/zip2.c
+  # arm/neon/shl.c
+  # arm/neon/shl_n.c
+  # arm/neon/shr_n.c
+  # arm/neon/sra_n.c
+  # arm/neon/sub.c
+  # arm/neon/tbl.c
+  # arm/neon/tbx.c
+  # arm/neon/trn.c
+  # arm/neon/trn1.c
+  # arm/neon/trn2.c
+  # arm/neon/tst.c
+  # arm/neon/uzp.c
+  # arm/neon/uzp1.c
+  # arm/neon/uzp2.c
+  # arm/neon/zip.c
+  # arm/neon/zip1.c
+  # arm/neon/zip2.c
   )
 
 set(TEST_RUNNER_SOURCES
   run-tests.c
-  x86/run-tests.c
+  # x86/run-tests.c
   arm/run-tests.c
   arm/neon/run-tests.c)
 add_executable(run-tests ${TEST_RUNNER_SOURCES})
